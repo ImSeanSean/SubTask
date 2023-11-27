@@ -1,0 +1,277 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/*Start of Sidebar*/
+
+/* .logoIcon {
+    width: 5px !important;
+    height: 5px;
+    border-radius: 50%;
+    border: 1px solid #000;
+} */
+
+.user-img {
+    width: 50px;
+    border-radius: 100%;
+    border: 1px solid #000;
+}
+
+.sidebar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 80px;
+    background-color: #eed5c2;
+    padding: .4rem .8rem;
+    transition: all 0.5 ease;
+}
+
+.sidebar.active~.main-content {
+    left: 250px;
+    width: calc(100% - 250px);
+}
+
+.sidebar.active {
+    width: 250px;
+}
+
+.sidebar #btn {
+    position: absolute;
+    color: #415A77;
+    top: .4rem;
+    left: 50%;
+    font-size: 1.2rem;
+    line-height: 50px;
+    transform: translateX(-50%);
+}
+
+.sidebar.active #btn {
+    left: 90%;
+}
+
+.sidebar .top .logo {
+    color: #fff;
+    display: flex;
+    height: 50px;
+    width: 100%;
+    align-items: center;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.sidebar.active .top .logo {
+    opacity: 1;
+}
+
+.top .logo i {
+    font-size: 2rem;
+    margin-right: 5px;
+    color: #415A77;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    margin: 2.05rem 0;
+}
+
+.user p {
+    opacity: 1;
+    margin-left: 1rem;
+    color: #334152;
+}
+
+.bold {
+    font-weight: 600
+}
+
+.sidebar p {
+    opacity: 0;
+}
+
+.sidebar.active p {
+    opacity: 1;
+}
+
+.sidebar ul li {
+    position: relative;
+    list-style-type: none;
+    height: 50px;
+    width: 90%;
+    margin: 0.8rem auto;
+    line-height: 50px;
+}
+
+.sidebar ul li hr.solid {
+    border-top: 100px solid #334152;
+    /* Change the color to match your design */
+    width: 120px;
+    /* Adjust the width as needed */
+}
+
+.sidebar ul li a {
+    color: #334152;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 0.8 rem;
+}
+
+.sidebar ul li a:hover {
+    background-color: #fff;
+    color: #12171e;
+}
+
+.sidebar ul li a i {
+    min-width: 50px;
+    text-align: center;
+    height: 50px;
+    border-radius: 12px;
+    line-height: 50px;
+}
+
+.sidebar .nav-item {
+    opacity: 0;
+}
+
+.sidebar.active .nav-item {
+    opacity: 1;
+}
+
+.sidebar ul li .tooltip {
+    position: absolute;
+    left: 125px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0.5rem 0.8rem rgba(0, 0, 0, 0.2);
+    border-radius: .6rem;
+    padding: .4rem 1.2 rem;
+    line-height: 1.8rem;
+    z-index: 20;
+    opacity: 0;
+}
+
+.sidebar ul li:hover .tooltip {
+    position: absolute;
+    left: 125px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0.5rem 0.8rem rgba(0, 0, 0, 0.2);
+    border-radius: .6rem;
+    padding: .4rem 1.2 rem;
+    line-height: 1.8rem;
+    z-index: 20;
+    opacity: 1;
+}
+
+.sidebar.active ul li .tooltip {
+    display: none;
+}
+
+.main-content {
+    position: relative;
+    background: #eee;
+    min-height: 100vh;
+    top: 0;
+    left: 80px;
+    transition: all 0.5s ease;
+    width: calc(100% - 80px);
+    padding: 1rem;
+    margin-left: 0;
+}
+
+/*End of Sidebar*/
+
+
+/*Start of Search and Notification (Upper)*/
+.taskboard {
+    float: left;
+    width: 80%;
+}
+
+.upper-container{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.search form i {
+    position: relative;
+    top: 10px;
+    cursor: pointer;
+}
+.search form input{
+    background-color: #D9D9D9;
+    border-radius: 20px;
+    height: 35px;
+    width: 200px;
+    padding-left: 10px;
+    border: none;
+    outline: none;
+}
+
+/*End of Upper*/
+
+/*Line Break*/
+hr {
+    margin: 20px;
+    height: 2.5px;
+    border: 0;
+    background-color: #000;
+}
+
+/*Start of Taskboard*/
+.upper-taskboard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    padding-left: 5%;
+    padding-right: 5%;
+    width: 125%;
+}
+
+.upper-taskboard .my-tasks{
+    font-size: 48px;
+    font-weight: bold;
+    color: #F6828C;
+}
+
+.upper-taskboard .sorting label{
+    font-size: 20px;
+    color: #5194AD;
+    font-weight: bold;
+}
+
+.upper-taskboard .sorting select{
+    font-size: 22px;
+    font-weight: bold;
+    color: #415A77;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.upper-taskboard .sorting select option{
+    font-size: 18px;
+}
+
+/*End of Taskboard*/
+
+/*Start of Secondary Area*/
+.secondary-area {
+    background-color: #415A77;  
+    float: right;
+    width: 20%;
+    border-radius: 26px;
+    height: 760px;
+    padding: 20px;
+}

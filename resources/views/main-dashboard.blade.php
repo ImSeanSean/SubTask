@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SubTask</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="{{ asset('/css/main-dashboard.css') }}" rel="stylesheet">
+</head>
+
+<body>
+    <div class="sidebar"><!--Sidebar-->
+        <div class="top">
+            <div class="logo">
+                <img src="{{ asset('images/logo.png') }}" alt="logo" class="logoIcon">
+                <span>SubTask</span>
+            </div>
+        </div>
+        <i class="bx bx-menu bx-sm" id="btn"></i>
+        <div class="user">
+            <img src="{{ asset('images/user-img.png') }}" alt="me" class="user-img">
+            <div>
+                <p class="bold">{{'Sean'}}</p>
+                <p>User</p>
+            </div>
+        </div>
+        <ul>
+            <li>
+                <a href="/dashboard/main">
+                    <i class='bx bx-grid-alt bx-sm'></i>
+                    <span class="nav-item">Dashboard</span>
+                </a>
+                <span class="tooltip">Dashboard</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-notification bx-sm'></i>
+                    <span class="nav-item">Notifications</span>
+                </a>
+                <span class="tooltip">Notifications</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-task bx-sm'></i>
+                    <span class="nav-item">Tasks</span>
+                </a>
+                <span class="tooltip">Tasks</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-analyse bx-sm'></i>
+                    <span class="nav-item">Analytics</span>
+                </a>
+                <span class="tooltip">Analytics</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-collapse-alt bx-sm'></i>
+                    <span class="nav-item">SubSpaces</span>
+                </a>
+                <span class="tooltip">SubSpaces</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-cog bx-sm'></i>
+                    <span class="nav-item">Settings</span>
+                </a>
+                <span class="tooltip">Settings</span>
+            </li>
+            <hr class="solid">
+            <li>
+                <a href="#">
+                    <i class='bx bx-log-out-circle bx-sm'></i>
+                    <span class="nav-item">Logout</span>
+                </a>
+                <span class="tooltip">Logout</span>
+            </li>
+        </ul>
+    </div>
+
+    <div class="main-content"><!--Dashboard-->
+        <div class="taskboard">
+            <div class="upper-container"> <!--Upper Container-->
+                <div class="search"> <!--Search-->
+                    <form>
+                        <i class='bx bx-search-alt-2 bx-md' style='color:#415a77'></i>
+                        <input type="text" id="search" name="search" placeholder="Search here...">
+                    </form>
+                </div>
+                <div class="notification">
+                    <i class='bx bxs-bell bx-md' style='color:#415a77'  ></i>
+                </div>
+            </div>
+
+            <hr><!--Line Break-->
+
+            <div class="taskboard"><!--List of Tasks-->
+                <div class="upper-taskboard">
+                    <div class="my-tasks">
+                        <p>My Tasks</p>
+                    </div>
+                    <div class="sorting">
+                        <label>Sort by:</label>
+                        <select>
+                            <option value="recent">Recent Projects</option>
+                            <option value="completion">Completion</option>
+                            <option value="change">Recently Changed</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="secondary-area"><!--Secondary Area-->
+            <p> Task Completion</p>
+        </div>
+    </div>
+</body>
+
+<script>
+    let btn = document.querySelector("#btn")
+    let sidebar = document.querySelector(".sidebar")
+
+
+    btn.onclick = function() {
+        sidebar.classList.toggle('active')
+    };
+</script>
+
+</html>
