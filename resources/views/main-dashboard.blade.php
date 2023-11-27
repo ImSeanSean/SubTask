@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SubTask</title>
+    <title>SubTask | Dashboard</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="{{ asset('/css/main-dashboard.css') }}" rel="stylesheet">
 </head>
@@ -13,18 +13,14 @@
     <div class="sidebar"><!--Sidebar-->
         <div class="top">
             <div class="logo">
-                <img src="{{ asset('images/logo.png') }}" alt="logo" class="logoIcon">
-                <span>SubTask</span>
+                <img src="{{ asset('images/subtaskLogo.png') }}" alt="logo" class="logoIcon">
             </div>
         </div>
-        <i class="bx bx-menu bx-sm" id="btn"></i>
+        <i class="bx bx-menu bx-md" id="btn"></i>
         <div class="user">
             <img src="{{ asset('images/user-img.png') }}" alt="me" class="user-img">
-            <div>
-                <p class="bold">{{'Sean'}}</p>
-                <p>User</p>
-            </div>
         </div>
+        <p class="bold">{{'Sean'}}</p>
         <ul>
             <li>
                 <a href="/dashboard/main">

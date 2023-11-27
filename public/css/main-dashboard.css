@@ -32,18 +32,25 @@
 }
 
 .sidebar.active~.main-content {
-    left: 250px;
-    width: calc(100% - 250px);
+    left: 175px;
+    width: calc(100% - 175px);
+    transition: all 0.5s ease;
 }
 
 .sidebar.active {
-    width: 250px;
+    width: 190px;
+}
+
+.sidebar.active .user {
+    margin-top: 1rem; 
+    margin-left: 30%;
 }
 
 .sidebar #btn {
-    position: absolute;
+    padding-top: 10%;
+    position: relative;
     color: #415A77;
-    top: .4rem;
+    top: 0px;
     left: 50%;
     font-size: 1.2rem;
     line-height: 50px;
@@ -51,39 +58,30 @@
 }
 
 .sidebar.active #btn {
-    left: 90%;
+    left: 45%;
 }
 
-.sidebar .top .logo {
-    color: #fff;
-    display: flex;
-    height: 50px;
-    width: 100%;
-    align-items: center;
-    pointer-events: none;
+.sidebar .top .logo img{
+    padding-top: 20px;
+    width: 80%;  
+    height: auto;
     opacity: 0;
+    transition: none;
 }
 
-.sidebar.active .top .logo {
+.sidebar.active .top .logo img {
+    padding-top: 20px;
+    padding-left: 10px;
+    width: 80%;  
+    height: auto;
     opacity: 1;
-}
-
-.top .logo i {
-    font-size: 2rem;
-    margin-right: 5px;
-    color: #415A77;
+    transition: 0.5s;
 }
 
 .user {
     display: flex;
     align-items: center;
-    margin: 2.05rem 0;
-}
-
-.user p {
-    opacity: 1;
-    margin-left: 1rem;
-    color: #334152;
+    margin-top: 2rem 0;
 }
 
 .bold {
@@ -96,6 +94,13 @@
 
 .sidebar.active p {
     opacity: 1;
+    color: #334152;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 10px;
+    flex-grow: 1; /* This will make the username take up the remaining space */
+    text-align: center; /* Center the text */
 }
 
 .sidebar ul li {
