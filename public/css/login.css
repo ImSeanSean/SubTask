@@ -9,7 +9,7 @@
 .left{
     float: left;
     background-color: #94D4EC;
-    width: 40%;
+    width: 45%;
 }
 
 .left hr{
@@ -30,7 +30,7 @@
 .left .text{
     padding-top: 20%;
     padding-left: 25%;
-    padding-bottom: 35.9%;
+    padding-bottom: 27.5%;
 }
 
 .left p{
@@ -57,13 +57,83 @@
 .right{
     float: right;
     background-color: #F7F7F7;
-    width: 60%;
+    width: 55%;
 }
 
 .right hr{
     height: 9px; /* Set the desired height for the horizontal rule */
     background-color: #94D4EC; 
     border: none; 
-    margin: 1.5% 0; 
+    margin: 1.18% 0; 
+}
+
+.right h1{
+    color: #FF6976;
+    font-size: 48px;
+    margin-left: 10%;
+    margin-top: 15%;
+    margin-bottom: -1.5%;
+}
+
+.right p{
+    color: #F6828C;
+    font-size: 28px;
+    margin-left: 10%;
+    margin-bottom: 5%;
+}
+
+.right label{
+    color: #415A77;
+    font-size: 22px;
+    display: block;
+    margin-left: 15%;
+    font-weight: bold;
+}
+
+.right .textInput{
+    color: #415A77;
+    font-size: 18px;
+    display: block;
+    margin-left: 15%;
+    width: 55%; 
+    padding: 10px;
+    margin-top: 10px; 
+    border-radius: 10px;
+    background-color: #F2E6DC;
+    border: none;
+    margin-bottom: 2%;
+}
+
+.right .submit{
+    color:#415A77;
+    font-size: 18px;
+    background-color: #94D4EC;
+    display: block;
+    width: 55%;
+    margin-left: 15%;
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.right .submit:hover{
+        background-color: #5A9AB1;
+        color: #94D4EC;
+}
+
+.right a{
+    color: #F6828C;
+    font-size: 18px;
+    text-decoration: none;
+    display: block;
+    margin-left: 33%;
+    margin-top: 3%;
+}
+
+.right .login-form{
+    padding-top: 5%;
+    margin-left: 12%;
+    margin-bottom: 21.3%;
 }
 /*End of the Right Side*/

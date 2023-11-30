@@ -77,41 +77,15 @@
     </div>
 
     <div class="main-content"><!--Dashboard-->
-        <div class="taskboard">
-            <div class="upper-container"> <!--Upper Container-->
-                <div class="search"> <!--Search-->
-                    <form>
-                        <i class='bx bx-search-alt-2 bx-md' style='color:#415a77'></i>
-                        <input type="text" id="search" name="search" placeholder="Search here...">
-                    </form>
-                </div>
-                <div class="notification">
-                    <i class='bx bxs-bell bx-md' style='color:#415a77'  ></i>
-                </div>
-            </div>
+        @unless(count($tasks) == 0)
+            @foreach($tasks as $task)
+                <h2>{{$task['task']}}</h2>
+                <p>{{$task['description']}}</p>
+            @endforeach
 
-            <hr><!--Line Break-->
-
-            <div class="taskboard"><!--List of Tasks-->
-                <div class="upper-taskboard">
-                    <div class="my-tasks">
-                        <p>My Tasks</p>
-                    </div>
-                    <div class="sorting">
-                        <label>Sort by:</label>
-                        <select>
-                            <option value="recent">Recent Projects</option>
-                            <option value="completion">Completion</option>
-                            <option value="change">Recently Changed</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="secondary-area"><!--Secondary Area-->
-            <p> Task Completion</p>
-        </div>
+            @else
+            <p>No tasks found</p>
+        @endunless
     </div>
 </body>
 

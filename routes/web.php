@@ -1,6 +1,9 @@
 <?php
 
+use App\Models\Tasks;
+use Faker\Provider\Lorem;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +27,12 @@ Route::get('/dashboard/main', function () {
 Route::get('/login', function () {
     return view('login');
 });
+
+Route::get('/dashboard/tasks', function () {
+    return view('tasks', [
+        'tasks' => Tasks::all()
+    ]);
+});
+
+// Registration
+Route::get('/registration', [UserController::class, 'create']);

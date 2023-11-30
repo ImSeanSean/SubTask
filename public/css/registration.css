@@ -1,0 +1,150 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html, body{
+    height: 100%;
+}
+
+/*Start of Left*/
+.left{
+    float: left;
+    background-color: #F7F7F7;
+    width: 60%;
+    height: 100%;
+}
+
+.left hr{
+    height: 9px;
+    background-color: #94D4EC; 
+    border: none; 
+    margin: 1.5% 0; 
+}
+
+.left hr.top{
+    position: absolute;
+    top: 0;
+    width: 60%;
+}
+
+.left hr.bottom{
+    position: absolute;
+    bottom: 0;
+    width: 60%;
+}
+
+.left img{
+    width: auto;
+    height: auto;
+    max-width: 20%;
+    margin-left: 3%;
+    margin-top: 7%;
+}
+
+.left .header{
+    padding-left: 10%;
+    padding-top: 3%;
+    padding-bottom: 4%;
+}
+
+.left .header h1{
+    font-size: 40px;
+    color: #FF6976;
+}
+
+.left .header p{
+    font-size: 18px;
+    color: #F6828C;
+}
+
+.left .form-body label{
+    font-size: 22px;
+    color: #415A77;
+    display: block;
+    margin-left: 15%;
+    font-weight: bold;
+}
+
+.left .form-body input{
+    color: #415A77;
+    font-size: 18px;
+    display: block;
+    margin-left: 15%;
+    width: 45%; 
+    padding: 10px; 
+    border-radius: 10px;
+    background-color: #F2E6DC;
+    border: none;
+    margin-bottom: 1%;
+}
+
+.left .form-body .submit{
+    margin-top: 2%;
+    background-color: #94D4EC;
+    color: #415A77;
+    cursor: pointer;
+}
+
+.left .form-body .submit:hover{
+    background-color: #5A9AB1;
+    color: #94D4EC;
+}
+
+.left .registration-form{
+    margin-left: 20%;
+}
+/*End of Left*/
+
+.right{
+    float: right;
+    background-color: #94D4EC;
+    width: 40%;
+    height: 100%;
+}
+
+.right hr{
+    height: 9px;
+    background-color: #F2E6DC; 
+    border: none; 
+    margin: 1.5% 0; 
+}
+
+.right hr.top{
+    position: absolute;
+    top: 0;
+    width: 40%; 
+}
+
+.right hr.bottom{
+    position: absolute;
+    bottom: 0;
+    width: 40%;
+}
+
+.right p{
+    font-size: 50px;
+    font-weight: bold;
+    color: #884A92;
+}
+
+.right .whole-text{
+    margin-top: 25%;
+    margin-left: 25%;
+}
+
+.right .whole-text .text-2 p.sub{
+    color: #415A77;
+    display: inline;
+}
+
+.right .whole-text .text-2 p.task{
+    color: #FF6976;
+    display: inline;
+}
+
+.right .text-1{
+    margin-bottom: 5%;
+}
