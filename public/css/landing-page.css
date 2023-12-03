@@ -5,8 +5,10 @@
 }
 
 body{
-    background: #EED5C2;
+    background: #F7F7F7;
     font-family: 'Poppins', sans-serif;
+    width: 100vh;
+    height: 100vh;
 }
 
 #main{
@@ -21,7 +23,7 @@ body{
     height: 625px;
     background: url(/images/logoSM-modified.png);
     position: absolute;
-    bottom: -100%;
+    bottom: 0px;
     left: 30%;
     animation: anim 2s forwards, anim2 3s forwards 3s;
 }
@@ -41,7 +43,7 @@ body{
         bottom: -100%;
     }
     to{
-        bottom: 0%;
+        bottom: 10%;
     }
 }
 
@@ -64,8 +66,8 @@ body{
     font-weight: 600;
     line-height: 130px;
     position: absolute;
-    top: 250px;
-    left: 100px;
+    top: 35%;
+    left: 10%;
     align-items: center;
 }
 
@@ -87,6 +89,7 @@ body{
 
 #Contai3{
     overflow: hidden;
+    background-color: #F6828C;
 }
 
 #container{
@@ -111,14 +114,14 @@ body{
     cursor: pointer; /* Set cursor to pointer on hover */
 }
 
-#logo h1{
-    font-size: 20px;
-    color: #415A77;
+#logo a img{
+    width: 180px;
+    height: auto;
     transition: 0.3s;
     cursor: pointer;
 }
 
-#logo h1:hover{
+#logo img:hover{
     scale: 110%;
 }
 
@@ -162,4 +165,11 @@ body{
         top:  0%;
     }
 
+}
+
+hr{
+    position: absolute;
+    top: 0;
+    padding: 50px;
+    border: #415A77 50px;
 }

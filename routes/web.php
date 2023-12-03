@@ -32,6 +32,8 @@ Route::get('/dashboard/tasks', [TaskController::class, 'showTasks'])->middleware
 //Create Task
 Route::get('/dashboard/create-task', [TaskController::class, 'createTask'])->middleware('auth');
 
+Route::post('/dashboard/store-task', [TaskController::class, 'storeTask'])->middleware('auth');
+
 // Registration
 Route::get('/registration', [UserController::class, 'create'])->middleware('guest');
 

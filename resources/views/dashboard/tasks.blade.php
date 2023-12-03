@@ -79,7 +79,7 @@
     <div class="main-content"><!--Dashboard-->
         @unless(count($tasks) == 0)
             @foreach($tasks as $task)
-                <h2>{{$task['task']}}</h2>
+                <h2>{{$task['name']}}</h2>
                 <p>{{$task['description']}}</p>
             @endforeach
 

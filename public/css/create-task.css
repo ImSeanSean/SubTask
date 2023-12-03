@@ -230,7 +230,7 @@
 
 /*Color*/
 .task-form .form-grid .upper-form .color-radio{
-    width: 90%;
+    width: 95%;
     overflow: hidden;
     border-radius: 15px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
@@ -342,4 +342,10 @@
     .upper-form{
         grid-template-columns: 1fr;
     }
+}
+
+.error{
+    color: #FF6976;
+    margin-left: 5%;
+    margin-top: -3%;
 }

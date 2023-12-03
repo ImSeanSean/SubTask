@@ -17,9 +17,11 @@ class TasksFactory extends Factory
     public function definition(): array
     {
         return [
-            'task' => $this->faker->word(),
-            'description' => $this->faker->paragraph(5),
-            'color' => $this->faker->word(),
+            'name' => $this->faker->word,
+            'description' => $this->faker->sentence,
+            'color' => $this->faker->hexColor,
+            'due-date' => $this->faker->dateTimeBetween('now', '+1 week'),
+            'parent_id' => null,
         ];
     }
 }

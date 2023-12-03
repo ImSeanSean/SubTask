@@ -1,5 +1,7 @@
 .color {
-    color: #F2E6DC #F7F7F7 #FF6976 #F6828C #94D4EC #5A9AB1 #415A77;
+    color: #F2E6DC;
+    background-color: #F7F7F7;
+    /* Add other color properties as needed */
 }
 
 * {
@@ -9,72 +11,29 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-button,
-input[type="button"],
-input[type="submit"],
-input[type="reset"] {
-    background: none;
-    border: none;
-    padding: 0;
-    margin: 0;
-    font: inherit;
-    color: inherit;
-    cursor: pointer;
-    outline: none;
-    /* Additional styles if needed */
+body{
+    width: 100vh;
+    height: 100vh;
 }
 
-.task-card {
-    position: relative;
-    background-color: #EFEFEF;
-    border-radius: 10px;
-    width: 275px;
-    height: 275px;
+.task-card-2 .percent{
+    align-self: center;
 }
 
-.bar {
-    float: left;
-    width: 30px;
-    height: 100%;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-    position: relative; /* Add relative positioning to establish a containing block for absolutely positioned children */
+.task-card-2 .button{
+    align-self: center;
+    right: 1;
 }
 
-.side-bar {
-    float: left;
-    background-color: #F8BFC4;
-    width: 100%;
-    height: 100%;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-}
-
-.percentage {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 50%;
-    width: 100%;
-    background-color: #F6828C;
-    border-bottom-left-radius: 10px;
-}
-
-.text-part {
-    float: right;
-    width: calc(100% - 30px); /* Subtract the width of the bar from 100% */
-    height: 100%;
-    box-sizing: border-box;
+.main-task {
     padding: 10px;
+    display: grid;
+    grid-template-columns: 8fr 1fr 0.5fr;
+    gap: 10px; /* Optional: Add gap between grid items */
+    background-color: pink;
+    justify-content: space-evenly;
+    height: 10%;
+    align-content: center;
 }
 
-.text-part h1 {
-    font-size: 30px;
-    padding: 15px;
-    font-weight: bold;
-}
 
-.text-part li {
-  /* Your styles for list items */
-}

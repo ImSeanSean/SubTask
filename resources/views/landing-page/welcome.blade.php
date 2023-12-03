@@ -8,9 +8,7 @@
 </head> 
 <body> 
     <div class="main"> 
-        <div id="Contai1"> 
- 
-        </div> 
+        <hr>
         <div id="Contai2"> 
             <div id="text"> 
                 <span>S</span>
@@ -23,12 +21,14 @@
                 <span>K</span>
             </div> 
         </div> 
+        <div id="Contai1"> 
  
+        </div> 
         <div id="Contai3"> 
             <div id="container"> 
                 <div id="logo"> 
                     <a href="#">
-                        <h1>SubTask</h1> 
+                        <img src="{{asset('/images/subtaskLogo.png')}}">
                     </a>
                 </div> 
                 <div id="menu"> 

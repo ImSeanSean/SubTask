@@ -89,65 +89,96 @@
                 <hr>
             </div>
             <div class="task-form">
-                <form class="form-grid">
+                <form class="form-grid" method="POST" action="/dashboard/store-task">
+                    @csrf
                     <div class="upper-form">
                         <div class="task-name">
                             <label>Task Name</label>
-                            <input type="text" name="task-name" placeholder="Enter the task name...">
+                            <input type="text" name="name" placeholder="Enter the task name..." value="{{ old('name') }}">
+                            @error('name')
+                            <span class="error">{{$message}}</span>
+                            @enderror
                         </div>
                         <div>
-                            <label>Date</label>
-                            <input type="date" name="due-date" placeholder="Enter the date...">
+                            <label>Due Date</label>
+                            <input type="datetime-local" name="due-date" placeholder="Enter the date..." value={{old('due-date')}}>
+                            @error('due-date')
+                            <span class="error">{{$message}}</span>
+                            @enderror
                         </div>
                         <div>
                             <label>Color</label>
                             <div class="color-radio">
                                 <div class="red">
-                                    <input class="radio-input" type="radio" value="red" name="color" id="red">
+                                    <input class="radio-input" type="radio" value="red" name="color" id="red" {{ old('color') == 'red' ? 'checked' : '' }}>
                                     <label class="radio-label" for="red">Red</label>
                                 </div>
                                 <div class="blue">
-                                    <input class="radio-input" type="radio" value="blue" name="color" id="blue">
+                                    <input class="radio-input" type="radio" value="blue" name="color" id="blue" {{ old('color') == 'blue' ? 'checked' : '' }}>
                                     <label class="radio-label" for="blue">Blue</label>
                                 </div>
                                 <div class="green">
-                                    <input class="radio-input" type="radio" value="green" name="color" id="green">
+                                    <input class="radio-input" type="radio" value="green" name="color" id="green" {{ old('color') == 'green' ? 'checked' : '' }}>
                                     <label class="radio-label" for="green">Green</label>
                                 </div>
                                 <div class="yellow">
-                                    <input class="radio-input" type="radio" value="yellow" name="color" id="yellow">
+                                    <input class="radio-input" type="radio" value="yellow" name="color" id="yellow" {{ old('color') == 'yellow' ? 'checked' : '' }}>
                                     <label class="radio-label" for="yellow">Yellow</label>
                                 </div>
                                 <div class="orange">
-                                    <input class="radio-input" type="radio" value="orange" name="color" id="orange">
+                                    <input class="radio-input" type="radio" value="orange" name="color" id="orange" {{ old('color') == 'orange' ? 'checked' : '' }}>
                                     <label class="radio-label" for="orange">Orange</label>
                                 </div>
                                 <div class="purple">
-                                    <input class="radio-input" type="radio" value="purple" name="color" id="purple">
+                                    <input class="radio-input" type="radio" value="purple" name="color" id="purple" {{ old('color') == 'purple' ? 'checked' : '' }}>
                                     <label class="radio-label" for="purple">Purple</label>
                                 </div>
-                            </div>
+                            </div>                            
+                            @error('color')
+                            <span class="error">{{$message}}</span>
+                            @enderror
                         </div>
-                        <div>
+                        {{-- <div>
                             <label>Time</label>
                                 <input type="time">
-                        </div>
+                                @error('time')
+                                <span class="error">{{$message}}</span>
+                                @enderror
+                        </div> --}}
                     </div>
                     <hr>
                     <div class="description">
                         <label>Description</label>
-                        <textarea name="description" placeholder="Enter description" rows=""></textarea>
+                        <textarea name="description" placeholder="Enter description" rows="" value={{old('description')}}></textarea>
+                        @error('description')
+                            <span class="error">{{$message}}</span>
+                        @enderror
                     </div>
                     <hr>
                     <div class="bottom-part">
                         <div class="left">
                             <div class="subtasks">
                                 <label>Add SubTasks</label>
-                                <input type="text" name="subtask-1" placeholder="SubTask 1">
-                                <input type="text" name="subtask-2" placeholder="SubTask 2">
-                                <input type="text" name="subtask-3" placeholder="SubTask 3">
-                                <input type="text" name="subtask-4" placeholder="SubTask 4">
-                                <input type="text" name="subtask-5" placeholder="SubTask 5">
+                                <input type="text" name="subtask-1" placeholder="SubTask 1" value={{old('subtask-1')}}>
+                                @error('subtask-1')
+                                <span class="error">{{$message}}</span>
+                                @enderror
+                                <input type="text" name="subtask-2" placeholder="SubTask 2" value={{old('subtask-2')}}>
+                                @error('subtask-2')
+                                <span class="error">{{$message}}</span>
+                                @enderror
+                                <input type="text" name="subtask-3" placeholder="SubTask 3" value={{old('subtask-3')}}>
+                                @error('subtask-3')
+                                <span class="error">{{$message}}</span>
+                                @enderror
+                                <input type="text" name="subtask-4" placeholder="SubTask 4" value={{old('subtask-4')}}>
+                                @error('subtask-4')
+                                <span class="error">{{$message}}</span>
+                                @enderror
+                                <input type="text" name="subtask-5" placeholder="SubTask 5" value={{old('subtask-5')}}>
+                                @error('subtask-5')
+                                <span class="error">{{$message}}</span>
+                                @enderror
                             </div>
                             <div class="button">
                             <input type="submit" name="task-name" value="Create Task">
