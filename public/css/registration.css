@@ -98,6 +98,7 @@ html, body{
 }
 /*End of Left*/
 
+/*Start of Right*/
 .right{
     float: right;
     background-color: #94D4EC;
@@ -147,4 +148,13 @@ html, body{
 
 .right .text-1{
     margin-bottom: 5%;
+}
+
+/*End of Right*/
+
+/*Additional*/
+.error{
+    color: #FF6976;
+    margin-left: 15%;
+    font-size: 13px;
 }

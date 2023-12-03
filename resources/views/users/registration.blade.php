@@ -19,22 +19,45 @@
                 <p>Enter the required registration details</p>
             </div>
             <div class="form-body">
-                <form method="POST" actions="/users">
+                <form method="POST" action="/users">
+                    @csrf
                     <div>
                         <label>Username</label>
-                        <input type="text" name="username" id="username" placeholder="Please enter your desired username...">
+                        <input type="text" name="name" id="name" placeholder="Please enter your desired username..." value={{old('name')}}>
+
+                        @error('name')
+                            <p class="error">{{$message}}</p>
+                        @enderror
                     </div>
-                    <label>Email</label>
-                    <input type="email" name="email" id="email" placeholder="Please enter your desired email...">
-                    <label>Password</label>
-                    <input type="password" name="password" id="password" placeholder="Please enter your desired password...">
-                    <label>Confirm Password</label>
-                    <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Please repeat your password...">
+                    <div>
+                        <label>Email</label>
+                        <input type="email" name="email" id="email" placeholder="Please enter your desired email..." value={{old('email')}}>
+
+                        @error('email')
+                            <p class="error">{{$message}}</p>
+                        @enderror
+                    </div>
+                    <div>
+                        <label>Password</label>
+                        <input type="password" name="password" id="password" placeholder="Please enter your desired password..." value={{old('password')}}>
+
+                        @error('password')
+                            <p class="error">{{$message}}</p>
+                        @enderror
+                    </div>
+                    <div>
+                        <label>Confirm Password</label>
+                        <input type="password" name="password_confirmation" id="password_confirmation" placeholder="Please repeat your password..." value={{old('password_confirmation')}}>
+
+                        @error('password_confirmation')
+                            <p class="error">{{$message}}</p>
+                        @enderror
+                    </div>
                     <input class="submit" type="submit" value="Register">
                 </form>
             </div>
         </div>
-        <hr class="bottom   ">
+        <hr class="bottom">
     </div>
     <div class="right">
         <hr class="top">

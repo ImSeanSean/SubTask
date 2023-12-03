@@ -8,6 +8,8 @@
     <link rel="icon" href="/images/logoSMNT.ico" type="image/x-icon">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="{{ asset('/css/main-dashboard.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/components.css') }}" rel="stylesheet">
+    <script src="//unpkg.com/alpinejs" defer></script>
 </head>
 
 <body>
@@ -38,7 +40,7 @@
                 <span class="tooltip">Notifications</span>
             </li>
             <li>
-                <a href="#">
+                <a href="/dashboard/tasks">
                     <i class='bx bx-task bx-sm'></i>
                     <span class="nav-item">Tasks</span>
                 </a>
@@ -67,10 +69,19 @@
             </li>
             <hr class="solid">
             <li>
-                <a href="#">
+                <a href="/logout">
+                    @csrf
                     <i class='bx bx-log-out-circle bx-sm'></i>
                     <span class="nav-item">Logout</span>
                 </a>
+                <span class="tooltip">Logout</span>
+                {{-- <form>
+                    @csrf
+                    <button style="background: none; border: none; padding: 0; cursor: pointer; margin-left: 10px; padding-top: 5px">
+                        <i class='bx bx-log-out-circle bx-sm' style='color:#334152'></i>
+                        <span class="nav-item" style="color:#334152; font-size:16px; padding-left: 5px; padding-bottom: 20px;">Logout</span>
+                    </button>
+                </form> --}}
                 <span class="tooltip">Logout</span>
             </li>
         </ul>
@@ -113,6 +124,8 @@
             <p> Task Completion</p>
         </div>
     </div>
+    <x-add-task />
+    <x-flash-message />
 </body>
 
 <script>

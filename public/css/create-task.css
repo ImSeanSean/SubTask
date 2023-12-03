@@ -1,0 +1,345 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/*Start of Sidebar*/
+
+/* .logoIcon {
+    width: 5px !important;
+    height: 5px;
+    border-radius: 50%;
+    border: 1px solid #000;
+} */
+
+.user-img {
+    width: 50px;
+    border-radius: 100%;
+    border: 1px solid #000;
+}
+
+.sidebar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 80px;
+    background-color: #eed5c2;
+    padding: .4rem .8rem;
+    transition: all 0.5 ease;
+}
+
+.sidebar.active~.main-content {
+    left: 175px;
+    width: calc(100% - 175px);
+    transition: all 0.5s ease;
+}
+
+.sidebar.active {
+    width: 190px;
+}
+
+.sidebar.active .user {
+    margin-top: 1rem; 
+    margin-left: 30%;
+}
+
+.sidebar #btn {
+    padding-top: 10%;
+    position: relative;
+    color: #eed5c2;
+    top: 0px;
+    left: 50%;
+    font-size: 1.2rem;
+    line-height: 50px;
+    transform: translateX(-50%);
+}
+
+.sidebar.active #btn {
+    left: 45%;
+}
+
+.sidebar .top .logo img{
+    padding-top: 20px;
+    width: 80%;  
+    height: auto;
+    opacity: 1;
+    transition: none;
+    margin-bottom: 30px;
+}
+
+.sidebar.active .top .logo img {
+    padding-top: 20px;
+    padding-left: 10px;
+    width: 80%;  
+    height: auto;
+    opacity: 1;
+    transition: 0.5s;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    margin-top: 2rem 0;
+}
+
+.bold {
+    font-weight: 600
+}
+
+.sidebar p {
+    opacity: 0;
+}
+
+.sidebar.active p {
+    opacity: 1;
+    color: #334152;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 10px;
+    flex-grow: 1; /* This will make the username take up the remaining space */
+    text-align: center; /* Center the text */
+}
+
+.sidebar ul li {
+    position: relative;
+    list-style-type: none;
+    height: 50px;
+    width: 90%;
+    margin: 0.8rem auto;
+    line-height: 50px;
+}
+
+.sidebar ul li hr.solid {
+    border-top: 100px solid #334152;
+    /* Change the color to match your design */
+    width: 120px;
+    /* Adjust the width as needed */
+}
+
+.sidebar ul li a {
+    color: #334152;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 0.8 rem;
+}
+
+.sidebar ul li a:hover {
+    background-color: #fff;
+    color: #12171e;
+}
+
+.sidebar ul li a i {
+    min-width: 50px;
+    text-align: center;
+    height: 50px;
+    border-radius: 12px;
+    line-height: 50px;
+}
+
+.sidebar .nav-item {
+    opacity: 0;
+}
+
+.sidebar.active .nav-item {
+    opacity: 1;
+}
+
+.sidebar ul li .tooltip {
+    position: absolute;
+    left: 125px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0.5rem 0.8rem rgba(0, 0, 0, 0.2);
+    border-radius: .6rem;
+    padding: .4rem 1.2 rem;
+    line-height: 1.8rem;
+    z-index: 20;
+    opacity: 0;
+}
+
+.sidebar ul li:hover .tooltip {
+    position: absolute;
+    left: 125px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0.5rem 0.8rem rgba(0, 0, 0, 0.2);
+    border-radius: .6rem;
+    padding: .4rem 1.2 rem;
+    line-height: 1.8rem;
+    z-index: 20;
+    opacity: 1;
+}
+
+.sidebar ul li form{
+    background-color: none;
+}
+
+.sidebar.active ul li .tooltip {
+    display: none;
+}
+
+.main-content {
+    position: relative;
+    background: #eee;
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-gap: 20px;
+    padding: 1rem;
+    margin-left: 80px;
+    transition: all 0.5s ease;
+}
+/*End of Sidebar*/
+
+/*Heading*/
+.heading h1{
+    padding: 10px;
+    padding-top: 0px;
+    font-size: 48px;
+    font-weight: bold;
+    color: #FF6976;
+}
+
+/*Task Form*/
+.task-form input{
+    font-size: 1rem;
+}
+
+.task-form .form-grid{
+    display: grid;
+    grid-template-rows: 1fr;
+}
+
+/*Upper Form*/
+.task-form .form-grid .upper-form{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 10px;
+    padding-top: 0px;
+    margin-top: -20px;
+}
+
+.task-form .form-grid .upper-form input{
+    border: none;
+}
+
+/*Color*/
+.task-form .form-grid .upper-form .color-radio{
+    width: 90%;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+    padding: 0;
+    display: flex; /* Updated to flex to handle width better */
+    margin: 0 auto; /* Center the color radio */
+    justify-content: space-evenly;
+}
+
+.task-form .form-grid .upper-form .color-radio div{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.task-form .form-grid .upper-form .color-radio div:not(:last-of-type){
+    border-right: 1px solid;
+}
+
+.task-form .form-grid .upper-form .color-radio .radio-input{
+    display: none;
+}
+
+.task-form .form-grid .upper-form .color-radio .radio-label{
+    padding: 8px 14px;
+    font-size: 14px;
+    background-color: gainsboro;
+    cursor: pointer;
+    transition: background 0.5s;
+}
+
+.task-form .form-grid .upper-form .color-radio .red .radio-input:checked + .radio-label{
+    background-color: #F6828C;
+}
+.task-form .form-grid .upper-form .color-radio .blue .radio-input:checked + .radio-label{
+    background-color: #82CCF6;
+}
+.task-form .form-grid .upper-form .color-radio .green .radio-input:checked + .radio-label{
+    background-color: #82F69C;
+}
+.task-form .form-grid .upper-form .color-radio .yellow .radio-input:checked + .radio-label{
+    background-color: #F4F682;
+}
+.task-form .form-grid .upper-form .color-radio .orange .radio-input:checked + .radio-label{
+    background-color: #F6B382;
+}
+.task-form .form-grid .upper-form .color-radio .purple .radio-input:checked + .radio-label{
+    background-color: #D882F6;
+}
+
+/*Description*/
+.task-form .form-grid .description{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.task-form .form-grid div{
+    padding: 10px;
+}
+
+.task-form .form-grid label{
+    display: block;
+    font-weight: bold;
+    font-size: 22px;
+    color: #415A77;
+}
+
+.task-form .form-grid input{
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+.task-form .form-grid .description textarea {
+    height: 60px;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none; 
+    resize: none;
+    font-size: 1rem;
+}
+
+/*Bottom Area*/
+.task-form .form-grid .bottom-part{
+    padding: 0px;
+    margin: 0px;
+    margin-top: -10px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+/*Bottom Area SubTask*/
+.task-form .form-grid .bottom-part .left .subtasks input{
+    margin: 3px;   
+    border-radius: 5px;
+    border: none;
+}
+/*Bottom Area Button */
+.task-form .form-grid .bottom-part .left .button input{
+    margin-top: -10px;
+}
+
+@media screen and (max-width: 600px) {
+    .task-form .form-grid {
+        grid-template-rows: 1fr;
+    }
+    .upper-form{
+        grid-template-columns: 1fr;
+    }
+}
