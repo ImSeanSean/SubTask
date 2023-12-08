@@ -331,8 +331,37 @@
     border: none;
 }
 /*Bottom Area Button */
+.task-form .form-grid .bottom-part .left .button{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: -15px;
+}
+
+.task-form .form-grid .bottom-part .left .button{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: -15px;
+}
+
 .task-form .form-grid .bottom-part .left .button input{
-    margin-top: -10px;
+    font-size: 25;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.task-form .form-grid .bottom-part .left .button .form{
+    align-self: center;
+    border: solid black 2px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 30px;
+    padding: 0;
+}
+
+.task-form .form-grid .bottom-part .left .button .form a{
+    display: block;
+    width: 100%;
+    height: 100%;
 }
 
 @media screen and (max-width: 600px) {

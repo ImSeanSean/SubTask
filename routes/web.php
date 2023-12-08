@@ -42,8 +42,10 @@ Route::get('/dashboard/{tasks}/edit', function ($id) {
         'task' => Tasks::find($id)
     ]);
 });
-
 Route::put('/dashboard/tasks/{task}', [TaskController::class, 'editTask']);
+
+//Delete Task
+Route::get('/dashboard/tasks/{task}/delete', [TaskController::class, 'deleteTask']);
 
 // Registration
 Route::get('/registration', [UserController::class, 'create'])->middleware('guest');

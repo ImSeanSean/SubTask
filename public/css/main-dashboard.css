@@ -280,6 +280,10 @@ hr {
     width: 100%;
 }
 
+.page-bar{
+    justify-content: space-between;
+}
+
 /*End of Taskboard*/
 
 /*Start of Secondary Area*/

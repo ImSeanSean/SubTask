@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{asset('/css/create-task.css')}}">
     <link rel="icon" href="/images/logoSMNT.ico" type="image/x-icon">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
     <div class="layout">
@@ -182,7 +183,14 @@
                                 @enderror
                             </div>
                             <div class="button">
-                            <input type="submit" name="task-name" value="Create Task">
+                                <div class="input-submit">
+                                    <input type="submit" name="task-name" value="Create Task">
+                                </div>
+                                <div class="form">
+                                    <form method="POST">
+                                        <a href="/dashboard/tasks/{{$task->id}}/delete" class="edit" onclick="confirmation(event)"><i class='bx bx-trash' style='color:#0a0a0a'  ></i></a>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                         <div class="right">
@@ -195,5 +203,27 @@
             </div>
         </div>   
     </div>
+    <script>
+        function confirmation(ev){
+            ev.preventDefault();
+            var urlToRedirect=ev.currentTarget.getAttribute('href');
+            console.log(urlToRedirect);
+
+            swal({
+                title:"Are you sure?",
+                text:"This action is irreversible.",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+
+            .then((willCancel)=>{
+                if(willCancel){
+                    window.location.href=urlToRedirect;
+
+                }
+            });
+        }
+    </script>
 </body>
 </html>

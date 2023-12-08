@@ -32,6 +32,10 @@
     row-gap: 20px;
 }
 
+.task-card-group h2{
+    color: #415A77;
+}
+
 a.task-card{
     background: none;
     border: none;

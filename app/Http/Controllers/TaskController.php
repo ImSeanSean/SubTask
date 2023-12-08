@@ -11,9 +11,19 @@ class TaskController extends Controller
     //Show Main Dashboard
     public function mainDashboard()
     {
-        return view('dashboard.main-dashboard', [
-            'tasks' => Tasks::all()
-        ]);
+        $tasks = Tasks::query()
+            ->when(request('search'), function ($query, $search) {
+                return $query->where('name', 'like', '%' . $search . '%');
+            })
+            ->when(request('sort'), function ($query, $sort) {
+                return $query->orderBy($sort, 'desc');
+            }, function ($query) {
+                // Default sort by creation date if no specific sort is requested
+                return $query->orderBy('updated_at', 'desc');
+            })
+            ->simplePaginate(6);
+
+        return view('dashboard.main-dashboard', compact('tasks'));
     }
 
     //Show Tasks
@@ -79,9 +89,16 @@ class TaskController extends Controller
                 // 'subtask-5' => ['nullable', 'max:15'],
             ]
         );
-        //Create Task
+        //Edit Task
         $task->update($formFields);
         //Redirect
         return redirect('dashboard/main')->with('message', 'Welcome, ' . $formFields['name']);
+    }
+
+    //Delete Task
+    public function deleteTask(Tasks $task)
+    {
+        $task->delete();
+        return redirect('dashboard/main')->with('message', 'Listing Deleted Succcessfully');
     }
 }

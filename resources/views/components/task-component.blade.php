@@ -2,7 +2,7 @@
 
 <div class="task-card-group">
     @unless(count($tasks) == 0)
-        @foreach($tasks->take(6) as $task)
+        @foreach($tasks as $task)
             {{-- <a href="/dashboard/tasks/{{$task['id']}}" class="task-card" id="taskButton"> --}}
                 <a href="#" data-toggle="modal" data-target="#ModalTaskView{{$task['id']}}" class="task-card" id="taskButton">
                 <div class="task-card-div">
@@ -29,6 +29,10 @@
         @endforeach
 
     @else
-        <p>No tasks found</p>
+        <h2 class="col-12 text-center">No tasks found :(</h2>
     @endunless
+</div>
+
+<div class="mt-6 p-4">
+    {{$tasks->links()}}
 </div>

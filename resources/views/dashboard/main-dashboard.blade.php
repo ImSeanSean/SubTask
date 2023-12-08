@@ -13,6 +13,7 @@
     <link href="{{ asset('/css/components.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/single-task.css') }}" rel="stylesheet">
     <script src="//unpkg.com/alpinejs" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
@@ -95,7 +96,7 @@
             <div class="upper-container"> <!--Upper Container-->
                 <div class="search"> <!--Search-->
                     <form>
-                        <i class='bx bx-search-alt-2 bx-md' style='color:#415a77'></i>
+                        <button type="submit" class="border-0"><i class='bx bx-search-alt-2 bx-md' style='color:#415a77'></i></button>
                         <input type="text" id="search" name="search" placeholder="Search here...">
                     </form>
                 </div>
@@ -112,12 +113,15 @@
                         <p>My Tasks</p>
                     </div>
                     <div class="sorting">
-                        <label>Sort by:</label>
-                        <select>
-                            <option value="recent">Recent Projects</option>
-                            <option value="completion">Completion</option>
-                            <option value="change">Recently Changed</option>
-                        </select>
+                        <form id="sortForm" action="/dashboard/main" method="get">
+                            <label for="sortBy">Sort by:</label>
+                            <select id="sortBy" name="sort" onchange="submitForm()">
+                                <option></option>
+                                <option value="due-date">Due Date</option>
+                                <option value="completion">Completion</option>
+                                <option value="updated_at">Recently Changed</option>
+                            </select>
+                        </form>
                     </div>
                 </div>
                 <div class="task-list">
@@ -132,17 +136,21 @@
     </div>
     <x-add-task />
     <x-flash-message />
+
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
-
 <script>
     let btn = document.querySelector("#btn")
 
     btn.onclick = function() {
         sidebar.classList.toggle('active')
     };
+
+    function submitForm() {
+            document.getElementById('sortForm').submit();
+        }
 </script>
 
 </html>
