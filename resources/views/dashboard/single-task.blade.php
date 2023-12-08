@@ -7,6 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="{{ asset('/css/single-task.css')}}">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="{{ asset('/js/circular.js')}}"></script>
 </head>
 <body>
     <div class="sidebar"><!--Sidebar-->
@@ -94,11 +95,10 @@
                     </div>
                     <div class="percentage">
                         <div class="circle-percentage">
-                            <p>0%</p>
+                            <span class="progress-value">0%</span>
                         </div>
                     </div>
                 </div>
-                <hr>
                 <div class="bottom">
                     <div class="description">
                         <p>This is my web development</p>
@@ -126,6 +126,7 @@
                 <div class="summary-report">
                     <h3>Summary Report</h3>
                 </div>
+                <hr>
                 <div class="summary-list">
                     <ul>
                         <li>Subtask1</li>
@@ -136,9 +137,9 @@
                     </ul>
                 </div>
                 <div class="buttons">
-                    <button>/</button>
-                    <button>X</button>
-                    <button>^</button>
+                    <button class ="check"><i class='bx bx-check-double' style='color:#c6d24f' ></i></button>
+                    <button class ="trash"><i class='bx bxs-trash' style='color:#c6d24f' ></i></button>
+                    <button class="update"><i class='bx bxs-edit-alt' style='color:#c6d24f' ></i></button>
                 </div>
             </div>
         </div>

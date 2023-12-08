@@ -262,8 +262,40 @@
     font-weight: bold;
 }
 
-.modal-taskview hr{
-    position: fixed;
+.modal-taskview .left .header .percentage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+.modal-taskview .left .header .circle-percentage{
+    position: relative;
+    height: 100%;
+    width: 70%;
+    border-radius: 50%;
+    background-color: #5194ad;
+    background: conic-gradient(#5194ad 3.6deg, #ededed 0deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-taskview .left .header .circle-percentage::before{
+    content: "";
+    position: absolute;
+    height: 72.5%;
+    width: 70%;
+    border-radius: 50%;
+    background-color: #f9f89e;
+}
+
+.modal-taskview .left .header .percentage span{
+    position: relative;
+    color: #415a77;
+    z-index: 1;
+    font-size: 150%;
+    font-weight: bold;
 }
 
 .modal-taskview .left .bottom{
@@ -309,5 +341,73 @@
     background-color: rgba(130, 130, 130, 0.08);
     border-radius: 10px;
     display: grid;
-    grid-template-rows: 2fr 7fr 1fr;
+    grid-template-rows: 1fr 0fr 8.2fr 0.8fr;
+    border: 2.5px solid rgb(236, 236, 92);
 }
+
+.modal-taskview .right .summary-report{
+    justify-self: center;
+    align-self: center;
+    color: #415A77;
+    position: relative;
+}
+
+.modal-taskview .right hr{
+    width: 100%;
+    border: none;
+    height: 2.5px; 
+    background-color: rgb(236, 236, 92);
+}
+
+.modal-taskview .right .summary-list ul{
+    justify-self: center;
+    list-style-type: none;
+    background-color: rgb(236, 236, 92);
+}
+
+.modal-taskview .right .summary-list li{ 
+    background-color: #FEFFCA;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #334152;
+}
+
+.modal-taskview .right .summary-list li:not(:last-of-type){ 
+    margin-bottom: 2.5px;
+}
+
+.modal-taskview .right .summary-list li:last-of-type{
+    border-bottom: 2.5px solid rgb(236, 236, 92);
+}
+
+.modal-taskview .right .buttons{
+    background-color: rgb(236, 236, 92);
+    padding-left: 10px;
+    padding-right: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    border: 2.5px solid rgb(236, 236, 92);
+    border-top: 5px solid rgb(236, 236, 92);
+    font-size: 50px;
+}
+
+.modal-taskview .right .buttons button{
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.modal-taskview .right .buttons button.check{
+    font-size: 30px;
+}
+
+.modal-taskview .right .buttons button.trash{
+    font-size: 20px;
+}
+
+.modal-taskview .right .buttons button.update{
+    font-size: 23px;
+}
+
