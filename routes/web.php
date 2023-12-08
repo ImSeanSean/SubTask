@@ -29,16 +29,21 @@ Route::get('/dashboard/main', [TaskController::class, 'mainDashboard'])->middlew
 //View Tasks
 Route::get('/dashboard/tasks', [TaskController::class, 'showTasks'])->middleware('auth');
 
-//View Single Task
-Route::get('/dashboard/tasks/{tasks}', [TaskController::class, 'showSingleTask'])->middleware('auth');
-
 //Create Task
 Route::get('/dashboard/create-task', [TaskController::class, 'createTask'])->middleware('auth');
 
 Route::post('/dashboard/store-task', [TaskController::class, 'storeTask'])->middleware('auth');
 
 //Edit Task
-Route::get('/dashboard/edit-task/{tasks}', [TaskController::class, 'editTask'])->middleware('auth');
+Route::get('/dashboard/{tasks}/edit', function ($id) {
+    // $task = Tasks::find($id);
+    // dd($task['description']);
+    return view('dashboard.edit-task', [
+        'task' => Tasks::find($id)
+    ]);
+});
+
+Route::put('/dashboard/tasks/{task}', [TaskController::class, 'editTask']);
 
 // Registration
 Route::get('/registration', [UserController::class, 'create'])->middleware('guest');

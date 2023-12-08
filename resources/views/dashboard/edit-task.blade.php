@@ -89,8 +89,9 @@
                 <hr>
             </div>
             <div class="task-form">
-                <form class="form-grid" method="POST" action="/dashboard/store-task">
+                <form class="form-grid" method="POST" action="/dashboard/tasks/{{$task->id}}">
                     @csrf
+                    @method('PUT')
                     <div class="upper-form">
                         <div class="task-name">
                             <label>Task Name</label>
@@ -101,7 +102,7 @@
                         </div>
                         <div>
                             <label>Due Date</label>
-                            <input type="datetime-local" name="due-date" placeholder="Enter the date..." value={{old('due-date')}}>
+                            <input type="datetime-local" name="due-date" placeholder="Enter the date..." value={{ \Carbon\Carbon::parse($task['due-date'])->format('Y-m-d\TH:i') }}>
                             @error('due-date')
                             <span class="error">{{$message}}</span>
                             @enderror
@@ -110,27 +111,27 @@
                             <label>Color</label>
                             <div class="color-radio">
                                 <div class="red">
-                                    <input class="radio-input" type="radio" value="red" name="color" id="red" {{ old('color') == 'red' ? 'checked' : '' }}>
+                                    <input class="radio-input" type="radio" value="red" name="color" id="red" {{ $task['color'] == 'red' ? 'checked' : '' }}>
                                     <label class="radio-label" for="red">Red</label>
                                 </div>
                                 <div class="blue">
-                                    <input class="radio-input" type="radio" value="blue" name="color" id="blue" {{ old('color') == 'blue' ? 'checked' : '' }}>
+                                    <input class="radio-input" type="radio" value="blue" name="color" id="blue" {{ $task['color'] == 'blue' ? 'checked' : '' }}>
                                     <label class="radio-label" for="blue">Blue</label>
                                 </div>
                                 <div class="green">
-                                    <input class="radio-input" type="radio" value="green" name="color" id="green" {{ old('color') == 'green' ? 'checked' : '' }}>
+                                    <input class="radio-input" type="radio" value="green" name="color" id="green" {{ $task['color'] == 'green' ? 'checked' : '' }}>
                                     <label class="radio-label" for="green">Green</label>
                                 </div>
                                 <div class="yellow">
-                                    <input class="radio-input" type="radio" value="yellow" name="color" id="yellow" {{ old('color') == 'yellow' ? 'checked' : '' }}>
+                                    <input class="radio-input" type="radio" value="yellow" name="color" id="yellow" {{ $task['color'] == 'yellow' ? 'checked' : '' }}>
                                     <label class="radio-label" for="yellow">Yellow</label>
                                 </div>
                                 <div class="orange">
-                                    <input class="radio-input" type="radio" value="orange" name="color" id="orange" {{ old('color') == 'orange' ? 'checked' : '' }}>
+                                    <input class="radio-input" type="radio" value="orange" name="color" id="orange" {{ $task['color'] == 'orange' ? 'checked' : '' }}>
                                     <label class="radio-label" for="orange">Orange</label>
                                 </div>
                                 <div class="purple">
-                                    <input class="radio-input" type="radio" value="purple" name="color" id="purple" {{ old('color') == 'purple' ? 'checked' : '' }}>
+                                    <input class="radio-input" type="radio" value="purple" name="color" id="purple" {{ $task['color'] == 'purple' ? 'checked' : '' }}>
                                     <label class="radio-label" for="purple">Purple</label>
                                 </div>
                             </div>                            
@@ -149,7 +150,7 @@
                     <hr>
                     <div class="description">
                         <label>Description</label>
-                        <textarea name="description" placeholder="Enter description" rows="" value={{old('description')}}></textarea>
+                        <textarea name="description" placeholder="Enter description" rows="">{{$task['description']}}</textarea>
                         @error('description')
                             <span class="error">{{$message}}</span>
                         @enderror

@@ -55,7 +55,7 @@
                         <div class="buttons">
                             <button class ="check"><i class='bx bx-check-double' style='color:#c6d24f' ></i></button>
                             <button class ="trash"><i class='bx bxs-trash' style='color:#c6d24f' ></i></button>
-                            <button class="update"><i class='bx bxs-edit-alt' style='color:#c6d24f' ></i></button>
+                            <button class="update" onclick="edit({{ $task->id}})"><i class='bx bxs-edit-alt' style='color:#c6d24f' ></i></button>
                         </div>
                     </div>
                 </div>
@@ -74,3 +74,13 @@
     border: none; /* Optional: Remove the modal border */
   }
 </style>
+
+<script>
+    function edit(taskId) {
+        // Define the URL you want to open
+        var linkUrl = '/dashboard/' + taskId + '/edit';
+
+        // Open the link in the current window
+        window.location.href = linkUrl;
+    }
+</script>

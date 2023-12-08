@@ -44,7 +44,7 @@ class TaskController extends Controller
         $formFields = $request->validate(
             [
                 'name' => 'required|max:20',
-                'description' => ['max:40'],
+                'description' => ['max:100'],
                 'color' => ['required'],
                 'due-date' => 'date|after:now',
                 'time' => 'nullable|date_format:H:i',
@@ -62,10 +62,26 @@ class TaskController extends Controller
     }
 
     //Edit Task
-    public function editTask(Tasks $task)
+    public function editTask(Request $request, Tasks $task)
     {
-        return view('dashboard.edit-task', [
-            'task' => $task
-        ]);
+        //Validate Task
+        $formFields = $request->validate(
+            [
+                'name' => 'required|max:20',
+                'description' => ['max:60'],
+                'color' => ['required'],
+                'due-date' => 'date|after:now',
+                'time' => 'nullable|date_format:H:i',
+                // 'subtask-1' => ['nullable', 'max:15'],
+                // 'subtask-2' => ['nullable', 'max:15'],
+                // 'subtask-3' => ['nullable', 'max:15'],
+                // 'subtask-4' => ['nullable', 'max:15'],
+                // 'subtask-5' => ['nullable', 'max:15'],
+            ]
+        );
+        //Create Task
+        $task->update($formFields);
+        //Redirect
+        return redirect('dashboard/main')->with('message', 'Welcome, ' . $formFields['name']);
     }
 }
