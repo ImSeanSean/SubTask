@@ -17,8 +17,90 @@
 .add-task{
     background-color: #F6B382;
     position: fixed;
-    bottom: 2%;
-    right: 20.5%;
+    bottom: 4.5%;
+    right: 19.7%;
     padding: 0.75%;
     border-radius: 100%;
+}
+
+/*Task Card Component*/
+.task-card-group{
+    display: grid;
+    grid-template-columns: repeat(3, 3.33fr);    
+    justify-content: space-between;
+    padding-left: 5%;
+}
+
+a.task-card{
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    outline: none;
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit color */
+    /* Additional styles if needed */
+}
+
+a.task-card .task-card-div {
+    position: relative; /* Add relative positioning to establish a containing block for absolutely positioned children */
+    display: flex;
+    background-color: #fefefe;
+    border-radius: 30px;
+    width: 260px;
+    height: 260px;
+    margin-bottom: 20px;
+}
+
+a.task-card .bar {
+    position: relative;
+    flex: 1.15;
+    display: flex;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    width: 50px; /* Set a fixed width for the bar */
+}
+
+a.task-card .side-bar {
+    background-color: #F8BFC4;
+    flex: 1; /* Use flex property to take full height */
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+a.task-card .percentage {
+    background-color: #F6828C;
+    position: absolute; /* Use absolute positioning to overlap with the side bar */
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80%;
+    border-bottom-left-radius: 30px;
+}
+
+a.task-card .text-part {
+    flex: 9; /* Use flex property to take remaining height */
+    text-align: left;
+    padding: 10px; /* Add padding for better spacing */
+    box-sizing: border-box; /* Include padding in the total width calculation */
+    overflow: auto;
+    overflow-wrap: break-word;
+}
+
+a.task-card .text-part h1{
+    font-size: 25px;
+    padding: 15px;
+    color: #415A77;
+}
+    
+a.task-card .text-part ul{
+    font-size: 14px;
+    padding: 2px;
+    padding-left: 50px;
+    list-style: disc outside;    
+    color: #5B81AD;
+    font-weight: bold;
 }

@@ -29,6 +29,9 @@ Route::get('/dashboard/main', [TaskController::class, 'mainDashboard'])->middlew
 //View Tasks
 Route::get('/dashboard/tasks', [TaskController::class, 'showTasks'])->middleware('auth');
 
+//View Single Task
+Route::get('/dashboard/tasks/{tasks}', [TaskController::class, 'showSingleTask']);
+
 //Create Task
 Route::get('/dashboard/create-task', [TaskController::class, 'createTask'])->middleware('auth');
 

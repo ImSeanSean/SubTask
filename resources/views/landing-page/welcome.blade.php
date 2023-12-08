@@ -8,21 +8,20 @@
 </head> 
 <body> 
     <div class="main"> 
+        <div id="Contai1"> 
+        </div> 
         <hr>
         <div id="Contai2"> 
             <div id="text"> 
-                <span>S</span>
-                <span>U</span>
-                <span>B</span>
-                <span><br></span>
-                <span>T</span>
-                <span>A</span>
-                <span>S</span>
-                <span>K</span>
+                <span class="sub-text">S</span>
+                <span class="sub-text">U</span>
+                <span class="sub-text">B</span>
+                <br>
+                <span class="task-text">T</span>
+                <span class="task-text">A</span>
+                <span class="task-text">S</span>
+                <span class="task-text">K</span>
             </div> 
-        </div> 
-        <div id="Contai1"> 
- 
         </div> 
         <div id="Contai3"> 
             <div id="container"> 
@@ -50,5 +49,5 @@
             </div> 
         </div> 
     </div> 
-</body> 
+</body>
 </html>

@@ -61,7 +61,6 @@ body{
 #Contai2{
     width: auto;
     height: auto;
-    color: black;
     font-size: 7em;
     font-weight: 600;
     line-height: 130px;
@@ -69,13 +68,21 @@ body{
     top: 35%;
     left: 10%;
     align-items: center;
+    
 }
 
 
-#text h1{
+#text {
     position: relative;
-    left: -100%;
+    left: -200%;
     animation: anim3 2s forwards 3s;
+}
+.sub-text {
+    color: #415A77; /* Color for 'SUB' */
+}
+
+.task-text {
+    color: #F6828C; /* Color for 'TASK' */
 }
 
 @keyframes anim3{
@@ -97,12 +104,14 @@ body{
     position: absolute;
     top: -100%;
     animation: anim4 2s forwards 2.5s;
+    background-color: #eed5c2;
+    padding: 5px;
 }
 
 #logo{
     float: left;
     margin-left: 100px;
-    margin-top: 20px;
+    margin-top: 10px;
     text-decoration: none; /* Remove underline */
     color: inherit; /* Inherit the color from the parent */
     cursor: pointer; /* Set cursor to pointer on hover */
@@ -141,6 +150,7 @@ body{
 }
 
 #menu ul li{
+    padding-top: 10px;
     display: inline-block;
     margin-left: 50px;
     cursor: pointer;

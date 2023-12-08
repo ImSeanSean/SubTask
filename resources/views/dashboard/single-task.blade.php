@@ -1,17 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SubTask | Dashboard</title>
-    <link rel="icon" href="/images/logoSMNT.ico" type="image/x-icon">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ asset('/css/single-task.css')}}">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link href="{{ asset('/css/main-dashboard.css') }}" rel="stylesheet">
-    <link href="{{ asset('/css/components.css') }}" rel="stylesheet">
-    <script src="//unpkg.com/alpinejs" defer></script>
 </head>
-
 <body>
     <div class="sidebar"><!--Sidebar-->
         <div class="top">
@@ -88,55 +84,64 @@
     </div>
 
     <div class="main-content"><!--Dashboard-->
-        <div class="taskboard">
-            <div class="upper-container"> <!--Upper Container-->
-                <div class="search"> <!--Search-->
-                    <form>
-                        <i class='bx bx-search-alt-2 bx-md' style='color:#415a77'></i>
-                        <input type="text" id="search" name="search" placeholder="Search here...">
-                    </form>
-                </div>
-                <div class="notification">
-                    <i class='bx bxs-bell bx-md' style='color:#415a77'  ></i>
-                </div>
-            </div>
-
-            <hr><!--Line Break-->
-
-            <div class="taskboard-center"><!--List of Tasks-->
-                <div class="upper-taskboard">
-                    <div class="my-tasks">
-                        <p>My Tasks</p>
+        <div class="modal-taskview">
+            <button class="close">X</button>
+            <div class="left">
+                <div class="header">
+                    <div class="title">
+                        <h1>Task Title</h1>
+                        <h2>Due-Date</h2>
                     </div>
-                    <div class="sorting">
-                        <label>Sort by:</label>
-                        <select>
-                            <option value="recent">Recent Projects</option>
-                            <option value="completion">Completion</option>
-                            <option value="change">Recently Changed</option>
-                        </select>
+                    <div class="percentage">
+                        <div class="circle-percentage">
+                            <p>0%</p>
+                        </div>
                     </div>
                 </div>
-                <div class="task-list">
-                    <x-task-component :tasks="$tasks"/>
+                <hr>
+                <div class="bottom">
+                    <div class="description">
+                        <p>This is my web development</p>
+                    </div>
+                    <div class="list-of-task">
+                        <div class="subtask">
+                            <h3>SubTask 1</h3>
+                        </div>
+                        <div class="subtask">
+                            <h3>SubTask 2</h3>
+                        </div>
+                        <div class="subtask">
+                            <h3>SubTask 3</h3>
+                        </div>
+                        <div class="subtask">
+                            <h3>SubTask 4</h3>
+                        </div>
+                        <div class="subtask">
+                            <h3>SubTask 5</h3>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <div class="secondary-area"><!--Secondary Area-->
-            <p> Task Completion</p>
+            <div class="right">
+                <div class="summary-report">
+                    <h3>Summary Report</h3>
+                </div>
+                <div class="summary-list">
+                    <ul>
+                        <li>Subtask1</li>
+                        <li>Subtask1</li>
+                        <li>Subtask1</li>
+                        <li>Subtask1</li>
+                        <li>Subtask1</li>
+                    </ul>
+                </div>
+                <div class="buttons">
+                    <button>/</button>
+                    <button>X</button>
+                    <button>^</button>
+                </div>
+            </div>
         </div>
     </div>
-    <x-add-task />
-    <x-flash-message />
 </body>
-
-<script>
-    let btn = document.querySelector("#btn")
-
-    btn.onclick = function() {
-        sidebar.classList.toggle('active')
-    };
-</script>
-
 </html>

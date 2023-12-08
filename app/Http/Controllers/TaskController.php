@@ -11,7 +11,9 @@ class TaskController extends Controller
     //Show Main Dashboard
     public function mainDashboard()
     {
-        return view('dashboard.main-dashboard');
+        return view('dashboard.main-dashboard', [
+            'tasks' => Tasks::all()
+        ]);
     }
     //Show Tasks
     public function showTasks()
@@ -20,7 +22,13 @@ class TaskController extends Controller
             'tasks' => Tasks::all()
         ]);
     }
-
+    //Show Single Task
+    public function showSingleTask(Tasks $task)
+    {
+        return view('dashboard.single-task', [
+            'task' => $task
+        ]);
+    }
     //Show Create Task Form
     public function createTask()
     {
