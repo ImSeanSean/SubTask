@@ -4,14 +4,14 @@
     @unless(count($tasks) == 0)
         @foreach($tasks->take(6) as $task)
             {{-- <a href="/dashboard/tasks/{{$task['id']}}" class="task-card" id="taskButton"> --}}
-                <a href="#" data-toggle="modal" data-target="#ModalTaskView" class="task-card" id="taskButton">
+                <a href="#" data-toggle="modal" data-target="#ModalTaskView{{$task['id']}}" class="task-card" id="taskButton">
                 <div class="task-card-div">
                     <div class="bar">
                         <div class="side-bar"></div>
                         <div class="percentage"></div>
                     </div>
                     <div class="text-part">
-                        <h1>{{ $task['name'] }}</h1>
+                        <h1 class="font-weight-bold">{{ $task['name'] }}</h1>
                         <ul>
                             {{-- @foreach($task->items as $item)
                                 <li>{{ $item }}</li>

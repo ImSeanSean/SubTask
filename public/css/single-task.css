@@ -222,8 +222,8 @@
     font-weight: 900;
     border: 1px solid gray;
     border-radius: 50%;
-    background-color: #869ab265;
-    color: #FF6976;
+    background-color: rgba(134, 154, 178, 0.8);
+    color: #ff0015;
     cursor: pointer;
 }
 
@@ -341,7 +341,7 @@
     background-color: rgba(130, 130, 130, 0.08);
     border-radius: 10px;
     display: grid;
-    grid-template-rows: 1fr 0fr 8.2fr 0.8fr;
+    grid-template-rows: 1fr 8.2fr 0.8fr;
     border: 2.5px solid rgb(236, 236, 92);
 }
 
@@ -350,6 +350,8 @@
     align-self: center;
     color: #415A77;
     position: relative;
+    border-bottom: 2.5px solid rgb(236, 236, 92);
+    width: 100%;
 }
 
 .modal-taskview .right hr{

@@ -15,6 +15,7 @@ class TaskController extends Controller
             'tasks' => Tasks::all()
         ]);
     }
+
     //Show Tasks
     public function showTasks()
     {
@@ -22,6 +23,7 @@ class TaskController extends Controller
             'tasks' => Tasks::all()
         ]);
     }
+
     //Show Single Task
     public function showSingleTask(Tasks $task)
     {
@@ -29,12 +31,12 @@ class TaskController extends Controller
             'task' => $task
         ]);
     }
+
     //Show Create Task Form
     public function createTask()
     {
         return view('dashboard.create-task');
     }
-
     //Validate Task Form
     public function storeTask(Request $request)
     {
@@ -57,5 +59,13 @@ class TaskController extends Controller
         Tasks::create($formFields);
         //Redirect
         return redirect('dashboard/main')->with('message', 'Welcome, ' . $formFields['name']);
+    }
+
+    //Edit Task
+    public function editTask(Tasks $task)
+    {
+        return view('dashboard.edit-task', [
+            'task' => $task
+        ]);
     }
 }

@@ -26,9 +26,10 @@
 /*Task Card Component*/
 .task-card-group{
     display: grid;
-    grid-template-columns: repeat(3, 3.33fr);    
+    grid-template-columns: repeat(3, 1fr);    
     justify-content: space-between;
     padding-left: 5%;
+    row-gap: 20px;
 }
 
 a.task-card{
@@ -42,6 +43,8 @@ a.task-card{
     outline: none;
     text-decoration: none; /* Remove underline */
     color: inherit; /* Inherit color */
+    width: 80%;
+    height: 100%;
     /* Additional styles if needed */
 }
 
@@ -50,9 +53,6 @@ a.task-card .task-card-div {
     display: flex;
     background-color: #fefefe;
     border-radius: 30px;
-    width: 260px;
-    height: 260px;
-    margin-bottom: 20px;
 }
 
 a.task-card .bar {
@@ -94,6 +94,7 @@ a.task-card .text-part h1{
     font-size: 25px;
     padding: 15px;
     color: #415A77;
+    font-weight: bold;
 }
     
 a.task-card .text-part ul{
