@@ -8,7 +8,8 @@
                 <div class="task-card-div">
                     <div class="bar">
                         <div class="side-bar"></div>
-                        <div class="percentage"></div>
+                        <div class="percentage" style="height: {{ $task->subtasks->count() > 0 ? $task->completed_subtasks_count / $task->subtasks->count() * 100 : 0 }}%; 
+                            @if($task->subtasks->count() > 0 && $task->completed_subtasks_count === $task->subtasks->count()) border-top-left-radius: 30px; @endif"></div>
                     </div>
                     <div class="text-part">
                         <h1 class="font-weight-bold">{{ $task['name'] }}</h1>

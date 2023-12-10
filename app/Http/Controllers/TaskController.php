@@ -123,21 +123,14 @@ class TaskController extends Controller
                 'name' => 'required|max:15',
                 'description' => ['max:60'],
                 'color' => ['required'],
-                'due-date' => 'date|after:now',
+                'due-date' => 'nullable|date|after:now',
                 'time' => 'nullable|date_format:H:i',
             ]
         );
         //Edit Task
         $task->update($formFields);
         // Edit Subtasks
-        $request->validate([
-            'subtask-1' => 'nullable|max:15',
-            'subtask-2' => 'nullable|max:15',
-            'subtask-3' => 'nullable|max:15',
-            'subtask-4' => 'nullable|max:15',
-            'subtask-5' => 'nullable|max:15',
-        ]);
-        $counter = 0;
+        $counter = 1;
         foreach ($task->subtasks as $subtask) {
             $subtaskName = $request->input('subtask-' . $counter);
             $counter++;
@@ -145,7 +138,6 @@ class TaskController extends Controller
                 // Update the subtask if the name is not empty
                 $subtask->update([
                     'name' => $subtaskName,
-                    'status' => false,
                 ]);
             } else {
                 // Delete the subtask if the name is empty
@@ -172,16 +164,15 @@ class TaskController extends Controller
         if ($task->user_id != auth()->id()) {
             abort(403, 'Unauthorized');
         }
-        //Validate Form
-        $request->validate([
-            'subtask_statuses' => 'required|array',
-            'subtask_statuses.*' => 'nullable|boolean',
-        ]);
+        // //Validate Form
+        // $request->validate([
+        //     'subtask_statuses.*' => 'nullable|boolean',
+        // ]);
         //Update
         foreach ($task->subtasks as $subtask) {
             $statusKey = 'subtask_statuses.' . $subtask->id;
             $subtask->update([
-                'status' => $request->input($statusKey, false),
+                'status' => $request->input($statusKey, 0),
             ]);
         }
         //Redirect

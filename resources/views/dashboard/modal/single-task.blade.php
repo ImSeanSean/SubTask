@@ -16,7 +16,7 @@
                             @endphp
                             <div class="percentage">
                                 <div class="circle-percentage" data-progress-end-value="{{$progressEndValue}}">
-                                    <span class="progress-value">20%</span>
+                                    <span class="progress-value">0%</span>
                                 </div>
                             </div>
                         </div>
@@ -30,7 +30,7 @@
                                     @foreach ($task->subtasks as $index => $subtask)
                                     <div class="subtask">
                                         <h3 class="font-weight-bold">{{$subtask->name}}</h3>
-                                        <input type="checkbox" name="subtask_statuses[{{$subtask->id}}]" {{ $subtask->status ? 'checked' : '' }}>
+                                        <input type="checkbox" name="subtask_statuses[{{$subtask->id}}]" value="1" {{ $subtask->status ? 'checked' : '' }}>
                                     </div>
                                     @endforeach
                                     @for ($i = count($task->subtasks) + 1; $i <= 5; $i++)
@@ -87,7 +87,7 @@
                 progressValue = modal.querySelector(".progress-value");
 
             let progressStartValue = 0,
-                progressEndValue = parseFloat(circularProgress.dataset.progressEndValue) || 0,
+                progressEndValue = parseInt(circularProgress.dataset.progressEndValue) || 0,
                 speed = 10;
             let progressInterval;
 
@@ -166,7 +166,6 @@
         text: "Your subtasks will be updated.",
         icon: "info",
         buttons: true,
-        dangerMode: true,
     })
     .then((willCancel) => {
         if (willCancel) {

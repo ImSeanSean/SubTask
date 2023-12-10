@@ -117,7 +117,7 @@
                             <select id="sortBy" name="sort" onchange="submitForm()">
                                 <option></option>
                                 <option value="due-date">Due Date</option>
-                                <option value="completion">Completion</option>
+                                <option value="completed_subtasks_count">Completion</option>
                                 <option value="updated_at">Recently Changed</option>
                             </select>
                         </form>

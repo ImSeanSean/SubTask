@@ -103,7 +103,7 @@
                         </div>
                         <div>
                             <label>Due Date</label>
-                            <input type="datetime-local" name="due-date" placeholder="Enter the date..." value={{ \Carbon\Carbon::parse($task['due-date'])->format('Y-m-d\TH:i') }}>
+                            <input type="datetime-local" name="due-date" placeholder="Enter the date..." value="{{ $task['due-date'] ? \Carbon\Carbon::parse($task['due-date'])->format('Y-m-d\TH:i') : '' }}">
                             @error('due-date')
                             <span class="error">{{$message}}</span>
                             @enderror
