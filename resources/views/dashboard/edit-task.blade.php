@@ -162,7 +162,6 @@
                             <div class="subtasks">
                                 <label>Add SubTasks</label>
                                 @for ($i = 0; $i < 5; $i++)
-x
                                         <input type="text" name="subtask-{{$i+1}}" placeholder="SubTask {{$i+1}}" value={{$task->subtasks[$i]->name}}>
                                         @error('subtask-{{$i+1}}')
                                         <span class="error">{{$message}}</span>
