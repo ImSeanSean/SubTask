@@ -20,4 +20,15 @@ class Tasks extends Model
     //         $query->orderBy($column, 'desc');
     //     }
     // }
+
+    //Relationship to User
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+    //Relationship to Subtasks
+    public function subtasks()
+    {
+        return $this->hasMany(Subtasks::class, 'task_id');
+    }
 }

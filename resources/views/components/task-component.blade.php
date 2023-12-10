@@ -13,14 +13,12 @@
                     <div class="text-part">
                         <h1 class="font-weight-bold">{{ $task['name'] }}</h1>
                         <ul>
-                            {{-- @foreach($task->items as $item)
-                                <li>{{ $item }}</li>
-                            @endforeach --}}
-                            <li>Layout</li>
-                            <li>Layout</li>
-                            <li>Layout</li>
-                            <li>Layout</li>
-                            <li>Layout</li>
+                            @foreach ($task->subtasks as $subtask)
+                                <li>{{ $subtask->name }}</li>
+                            @endforeach
+                            @for ($i = 0; $i < max(0, 5 - count($task->subtasks)); $i++)
+                                <li class="text-muted">...</li>
+                            @endfor
                         </ul>
                     </div>
                 </div>

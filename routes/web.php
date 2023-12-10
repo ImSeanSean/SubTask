@@ -38,14 +38,19 @@ Route::post('/dashboard/store-task', [TaskController::class, 'storeTask'])->midd
 Route::get('/dashboard/{tasks}/edit', function ($id) {
     // $task = Tasks::find($id);
     // dd($task['description']);
+    //Validate User
+    $task = Tasks::find($id);
+    if ($task->user_id != auth()->id()) {
+        abort(403, 'Unauthorized');
+    }
     return view('dashboard.edit-task', [
         'task' => Tasks::find($id)
     ]);
-});
-Route::put('/dashboard/tasks/{task}', [TaskController::class, 'editTask']);
+})->middleware('auth');
+Route::put('/dashboard/tasks/{task}', [TaskController::class, 'editTask'])->middleware('auth');
 
 //Delete Task
-Route::get('/dashboard/tasks/{task}/delete', [TaskController::class, 'deleteTask']);
+Route::get('/dashboard/tasks/{task}/delete', [TaskController::class, 'deleteTask'])->middleware('auth');
 
 // Registration
 Route::get('/registration', [UserController::class, 'create'])->middleware('guest');

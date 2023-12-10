@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Tasks;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class TaskController extends Controller
@@ -11,7 +12,9 @@ class TaskController extends Controller
     //Show Main Dashboard
     public function mainDashboard()
     {
+        $user = Auth::user();
         $tasks = Tasks::query()
+            ->where('user_id', $user->id)
             ->when(request('search'), function ($query, $search) {
                 return $query->where('name', 'like', '%' . $search . '%');
             })
@@ -56,17 +59,24 @@ class TaskController extends Controller
                 'name' => 'required|max:20',
                 'description' => ['max:100'],
                 'color' => ['required'],
-                'due-date' => 'date|after:now',
-                'time' => 'nullable|date_format:H:i',
-                // 'subtask-1' => ['nullable', 'max:15'],
-                // 'subtask-2' => ['nullable', 'max:15'],
-                // 'subtask-3' => ['nullable', 'max:15'],
-                // 'subtask-4' => ['nullable', 'max:15'],
-                // 'subtask-5' => ['nullable', 'max:15'],
+                'due-date' => 'nullable|date|after:now',
             ]
         );
+        //Assign to a user
+        $formFields['user_id'] = auth()->id();
         //Create Task
-        Tasks::create($formFields);
+        $task = Tasks::create($formFields);
+        // Add Subtasks
+        for ($i = 1; $i <= 5; $i++) {
+            $subtaskName = $request->input('subtask-' . $i);
+
+            if ($subtaskName) {
+                $task->subtasks()->create([
+                    'name' => $subtaskName,
+                    'status' => false,
+                ]);
+            }
+        }
         //Redirect
         return redirect('dashboard/main')->with('message', 'Welcome, ' . $formFields['name']);
     }
@@ -74,6 +84,10 @@ class TaskController extends Controller
     //Edit Task
     public function editTask(Request $request, Tasks $task)
     {
+        //Validate User
+        if ($task->user_id != auth()->id()) {
+            abort(403, 'Unauthorized');
+        }
         //Validate Task
         $formFields = $request->validate(
             [
@@ -82,15 +96,25 @@ class TaskController extends Controller
                 'color' => ['required'],
                 'due-date' => 'date|after:now',
                 'time' => 'nullable|date_format:H:i',
-                // 'subtask-1' => ['nullable', 'max:15'],
-                // 'subtask-2' => ['nullable', 'max:15'],
-                // 'subtask-3' => ['nullable', 'max:15'],
-                // 'subtask-4' => ['nullable', 'max:15'],
-                // 'subtask-5' => ['nullable', 'max:15'],
             ]
         );
         //Edit Task
         $task->update($formFields);
+        // Edit Subtasks
+        foreach ($task->subtasks as $subtask) {
+            $subtaskName = $request->input('subtask-' . $subtask->id);
+
+            if ($subtaskName) {
+                // Update the subtask if the name is not empty
+                $subtask->update([
+                    'name' => $subtaskName,
+                    'status' => false,
+                ]);
+            } else {
+                // Delete the subtask if the name is empty
+                $subtask->delete();
+            }
+        }
         //Redirect
         return redirect('dashboard/main')->with('message', 'Welcome, ' . $formFields['name']);
     }
@@ -98,6 +122,10 @@ class TaskController extends Controller
     //Delete Task
     public function deleteTask(Tasks $task)
     {
+        //Validate User
+        if ($task->user_id != auth()->id()) {
+            abort(403, 'Unauthorized');
+        }
         $task->delete();
         return redirect('dashboard/main')->with('message', 'Listing Deleted Succcessfully');
     }

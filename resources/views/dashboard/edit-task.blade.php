@@ -161,30 +161,23 @@
                         <div class="left">
                             <div class="subtasks">
                                 <label>Add SubTasks</label>
-                                <input type="text" name="subtask-1" placeholder="SubTask 1" value={{old('subtask-1')}}>
-                                @error('subtask-1')
-                                <span class="error">{{$message}}</span>
-                                @enderror
-                                <input type="text" name="subtask-2" placeholder="SubTask 2" value={{old('subtask-2')}}>
-                                @error('subtask-2')
-                                <span class="error">{{$message}}</span>
-                                @enderror
-                                <input type="text" name="subtask-3" placeholder="SubTask 3" value={{old('subtask-3')}}>
-                                @error('subtask-3')
-                                <span class="error">{{$message}}</span>
-                                @enderror
-                                <input type="text" name="subtask-4" placeholder="SubTask 4" value={{old('subtask-4')}}>
-                                @error('subtask-4')
-                                <span class="error">{{$message}}</span>
-                                @enderror
-                                <input type="text" name="subtask-5" placeholder="SubTask 5" value={{old('subtask-5')}}>
-                                @error('subtask-5')
-                                <span class="error">{{$message}}</span>
-                                @enderror
+                                @for ($i = 0; $i < 5; $i++)
+x
+                                        <input type="text" name="subtask-{{$i+1}}" placeholder="SubTask {{$i+1}}" value={{$task->subtasks[$i]->name}}>
+                                        @error('subtask-{{$i+1}}')
+                                        <span class="error">{{$message}}</span>
+                                        @enderror
+                                    @else
+                                        <input type="text" name="subtask-{{$i+1}}" placeholder="SubTask {{$i+1}}">
+                                        @error('subtask-{{$i+1}}')
+                                        <span class="error">{{$message}}</span>
+                                        @enderror
+                                    @endif
+                                @endfor
                             </div>
                             <div class="button">
                                 <div class="input-submit">
-                                    <input type="submit" name="task-name" value="Create Task">
+                                    <input type="submit" name="task-name" value="Update Task">
                                 </div>
                                 <div class="form">
                                     <form method="POST">
@@ -195,7 +188,7 @@
                         </div>
                         <div class="right">
                             <div>
-                                <label>Preview</label>
+                                <label></label>
                             </div>
                         </div>
                     </div>

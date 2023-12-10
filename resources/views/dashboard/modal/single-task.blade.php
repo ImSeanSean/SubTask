@@ -8,7 +8,7 @@
                         <div class="header">
                             <div class="title">
                                 <h1 class="font-weight-bold">{{ $task['name'] }}</h1>
-                                <h2>{{ $task['due-date']}}</h2>
+                                <h2>@if (!empty($task['due-date'])){{ $task['due-date']}}@else No Due Date @endif</h2>
                             </div>
                             <div class="percentage">
                                 <div class="circle-percentage">
@@ -21,21 +21,16 @@
                                 <p>{{ $task['description']}}</p>
                             </div>
                             <div class="list-of-task">
+                                @foreach ($task->subtasks as $subtask)
                                 <div class="subtask">
-                                    <h3 class="font-weight-bold">SubTask 1</h3>
+                                    <h3 class="font-weight-bold">{{$subtask->name}}</h3>
                                 </div>
-                                <div class="subtask">
-                                    <h3 class="font-weight-bold">SubTask 2</h3>
-                                </div>
-                                <div class="subtask">
-                                    <h3 class="font-weight-bold">SubTask 3</h3>
-                                </div>
-                                <div class="subtask">
-                                    <h3 class="font-weight-bold">SubTask 4</h3>
-                                </div>
-                                <div class="subtask">
-                                    <h3 class="font-weight-bold">SubTask 5</h3>
-                                </div>
+                                @endforeach
+                                @for ($i = 0; $i < max(0, 5 - count($task->subtasks)); $i++)
+                                    <div class="subtask">
+                                        <h3 class="text-muted">...</h3>
+                                    </div>
+                                @endfor
                             </div>
                         </div>
                     </div>
@@ -89,8 +84,8 @@
         var urlToRedirect = ev.currentTarget.getAttribute('href');  
         console.log(urlToRedirect); 
         swal({
-            title: "Are you sure to Delete this post",
-            text: "You will not be able to revert this!",
+            title: "Are you sure?",
+            text: "This action is irreversible.",
             icon: "warning",
             buttons: true,
             dangerMode: true,

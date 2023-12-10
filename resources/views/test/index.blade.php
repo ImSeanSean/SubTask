@@ -10,36 +10,25 @@
 </head>
 
 <body>
-    <div class="task-card-2">
-        <div class="main-task">
-            <div class="sidebar"></div>
-            <div class="left">
-                <h3>Task Activity BlaBla</h3>
-                <label>06/27/90</label>
-            </div>
-            <div class="circular-progress">
-                    <span class="progress-value">0</span>
-            </div>
-            <div class="button">
-                <i class='bx bx-chevron-down bx-sm'></i>
-            </div>
+    <div class="bottom">
+        <div class="title">
+            <h1>Task Title</h1>
         </div>
-        <div class="subtask">
-            <div class="arrow">
-                <i class='bx bx-subdirectory-right bx-lg' ></i>
-            </div>  
-            <div class="subtask-details">
-                <div class="sidebar"></div>
-                <div class="left">
-                    <h3>OOP</h3>
-                    <label>02/14/2023</label>
-                </div>
-                <div class="percent">
-                    <label>100%</label>
-                </div>
-                <div class="button">
-                    <i class='bx bx-chevron-down bx-sm'></i>
-                </div>
+        <div class="subtasks">
+            <div class="subtask1">
+                <h3>SubTask1</h3>
+            </div>
+            <div class="subtask1">
+                <h3>SubTask1</h3>
+            </div>
+            <div class="subtask1">
+                <h3>SubTask1</h3>
+            </div>
+            <div class="subtask1">
+                <h3>SubTask1</h3>
+            </div>
+            <div class="subtask1">
+                <h3>SubTask1</h3>
             </div>
         </div>
     </div>

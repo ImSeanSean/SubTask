@@ -186,7 +186,7 @@
                         </div>
                         <div class="right">
                             <div>
-                                <label>Preview</label>
+                                <label></label>
                             </div>
                         </div>
                     </div>

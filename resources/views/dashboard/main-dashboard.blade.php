@@ -23,7 +23,6 @@
                 <img src="{{ asset('images/subtaskLogo.png') }}" alt="logo" class="logoIcon">
             </div>
         </div>
-        <i class="bx bx-menu bx-md" id="btn"></i>
         <div class="user">
             <img src="{{ asset('images/user-img.png') }}" alt="me" class="user-img">
         </div>
