@@ -322,25 +322,20 @@
     margin: 0px;
     margin-top: -10px;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
 }
 /*Bottom Area SubTask*/
 .task-form .form-grid .bottom-part .left .subtasks input{
     margin: 3px;   
     border-radius: 5px;
     border: none;
+    width: 50%;
 }
 /*Bottom Area Button */
 .task-form .form-grid .bottom-part .left .button{
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin-top: -15px;
-}
-
-.task-form .form-grid .bottom-part .left .button{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin-top: -15px;
+    width: 50%;
 }
 
 .task-form .form-grid .bottom-part .left .button input{
@@ -363,7 +358,6 @@
     width: 100%;
     height: 100%;
 }
-
 @media screen and (max-width: 600px) {
     .task-form .form-grid {
         grid-template-rows: 1fr;

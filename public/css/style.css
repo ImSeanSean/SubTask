@@ -1,118 +1,421 @@
-.color {
-    color: #F2E6DC;
-    background-color: #F7F7F7;
-    /* Add other color properties as needed */
-}
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-body{
-    width: 100vh;
-    height: 100vh;
-}
+/*Start of Sidebar*/
 
-.task-card-2{
-    width: 100%;
-}
-
-.task-card-2 .percent{
-    align-self: center;
-}
-
-.task-card-2 .button{
-    align-self: center;
-    right: 1;
-    
-}
-
-.main-task {
-    display: grid;
-    grid-template-columns: 1fr 7fr 1fr 0.5fr;
-    gap: 10px; /* Optional: Add gap between grid items */
-    background-color: #e9e2e2;
-    justify-content: space-evenly;
-    height: 10%;
-    align-content: center;
-    border-radius: 20px;
-    width: 100%;
-}
-.sidebar{
-    width: 22px;
-    background: #F6828C;  
-    margin-left: 20px;  
-}
-.percent{
-    display: grid;
-    width: 100%;
-    height: 100%;
-    border-radius: 8px;
-    background: #e9e2e2;
-    flex-direction: column;
-    align-content: center;
-}
-.circular-progress{
-    align-self: center;
-    align-content: center;
-    height: 85%;
-    width: auto;
+/* .logoIcon {
+    width: 5px !important;
+    height: 5px;
     border-radius: 50%;
-    background: conic-gradient(#6c6870 3.6deg, #ededed 0deg);
+    border: 1px solid #000;
+} */
+
+.user-img {
+    width: 50px;
+    border-radius: 100%;
+    border: 1px solid #000;
+}
+
+.sidebar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 80px;
+    background-color: #eed5c2;
+    padding: .4rem .8rem;
+    transition: all 0.5 ease;
+}
+
+.sidebar.active~.main-content {
+    left: 175px;
+    width: calc(100% - 175px);
+    transition: all 0.5s ease;
+}
+
+.sidebar.active {
+    width: 190px;
+}
+
+.sidebar.active .user {
+    margin-top: 1rem; 
+    margin-left: 30%;
+}
+
+.sidebar #btn {
+    padding-top: 10%;
+    position: relative;
+    color: #415A77;
+    top: 0px;
+    left: 50%;
+    font-size: 1.2rem;
+    line-height: 50px;
+    transform: translateX(-50%);
+}
+
+.sidebar.active #btn {
+    left: 45%;
+}
+
+.sidebar .top .logo img{
+    padding-top: 20px;
+    width: 80%;  
+    height: auto;
+    opacity: 0;
+    transition: none;
+}
+
+.sidebar.active .top .logo img {
+    padding-top: 20px;
+    padding-left: 10px;
+    width: 80%;  
+    height: auto;
+    opacity: 1;
+    transition: 0.5s;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    margin-top: 2rem 0;
+}
+
+.bold {
+    font-weight: 600
+}
+
+.sidebar p {
+    opacity: 0;
+}
+
+.sidebar.active p {
+    opacity: 1;
+    color: #334152;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 10px;
+    flex-grow: 1; /* This will make the username take up the remaining space */
+    text-align: center; /* Center the text */
+}
+
+.sidebar ul li {
+    position: relative;
+    list-style-type: none;
+    height: 50px;
+    width: 90%;
+    margin: 0.8rem auto;
+    line-height: 50px;
+}
+
+.sidebar ul li hr.solid {
+    border-top: 100px solid #334152;
+    /* Change the color to match your design */
+    width: 120px;
+    /* Adjust the width as needed */
+}
+
+.sidebar ul li a {
+    color: #334152;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 0.8 rem;
+}
+
+.sidebar ul li a:hover {
+    background-color: #fff;
+    color: #12171e;
+}
+
+.sidebar ul li a i {
+    min-width: 50px;
+    text-align: center;
+    height: 50px;
+    border-radius: 12px;
+    line-height: 50px;
+}
+
+.sidebar .nav-item {
+    opacity: 0;
+}
+
+.sidebar.active .nav-item {
+    opacity: 1;
+}
+
+.sidebar ul li .tooltip {
+    position: absolute;
+    left: 125px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0.5rem 0.8rem rgba(0, 0, 0, 0.2);
+    border-radius: .6rem;
+    padding: .4rem 1.2 rem;
+    line-height: 1.8rem;
+    z-index: 20;
+    opacity: 0;
+}
+
+.sidebar ul li:hover .tooltip {
+    position: absolute;
+    left: 125px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0.5rem 0.8rem rgba(0, 0, 0, 0.2);
+    border-radius: .6rem;
+    padding: .4rem 1.2 rem;
+    line-height: 1.8rem;
+    z-index: 20;
+    opacity: 1;
+}
+
+.sidebar ul li form{
+    background-color: none;
+}
+
+.sidebar.active ul li .tooltip {
+    display: none;
+}
+
+.main-content {
+    position: relative;
+    background: #eee;
+    min-height: 100vh;
+    top: 0;
+    left: 80px;
+    transition: all 0.5s ease;
+    width: calc(100% - 80px);
+    padding: 1rem;
+    margin-left: 0;
+}
+/*End of Sidebar*/
+
+
+/*Start of Search and Notification (Upper)*/
+.taskboard {
+    float: left;
+    width: 80%;
+}
+
+.upper-container{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.search form i {
+    position: relative;
+    top: 10px;
+    cursor: pointer;
+}
+.search form input{
+    background-color: #D9D9D9;
+    border-radius: 20px;
+    height: 35px;
+    width: 200px;
+    padding-left: 10px;
+    border: none;
+    outline: none;
+}
+
+/*End of Upper*/
+
+/*Line Break*/
+hr {
+    margin: 10px;
+    height: 2.5px;
+    border: 0;
+    background-color: #000;
+}
+
+/*Start of Taskboard*/
+.upper-taskboard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    padding-left: 5%;
+    padding-right: 5%;
+    width: 100%;
+}
+
+.upper-taskboard .my-tasks{
+    font-size: 48px;
+    font-weight: bold;
+    color: #FF6976;
+}
+
+.upper-taskboard .sorting label{
+    font-size: 20px;
+    color: #5194AD;
+    font-weight: bold;
+}
+
+.upper-taskboard .sorting select{
+    font-size: 22px;
+    font-weight: bold;
+    color: #415A77;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.upper-taskboard .sorting select option{
+    font-size: 18px;
+}
+
+.taskboard-center{
+    width: 100%;
+}
+
+.task-list{
+    width: 100%;
+}
+
+/*End of Taskboard*/
+
+/*Start of Secondary Area*/
+.secondary-area {
+    background-color: #415A77;  
+    float: right;
+    width: 17%;
+    height: 100%;
+    border-radius: 26px;
+    height: 96vh; 
+    display: grid;
+    grid-template-rows: 3.5fr 6.5fr;
+}
+
+@media screen and (max-width: 1120px) {
+    .secondary-area {
+        display: none;
+    }
+    .main-content {
+        width: calc(100%-80px); /* Adjust the width based on your sidebar width */
+        left: 80px; /* Keep the left position to account for the sidebar */
+    }
+}
+
+.secondary-area .top{
+    display: grid;
+    padding: 20px;
+    border-bottom: #666 solid 5px;
+}
+
+.circular-progress {
+    position: relative;
+    height: 100px; /* Adjust the height as needed */
+    width: 100px;  /* Adjust the width as needed */
+    border-radius: 50%;
+    background: conic-gradient(#7d2ae8 3.6deg, #ededed 0deg);
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.circular-progress::before{
+
+.circular-progress::before {
     content: "";
     position: absolute;
-    height: 200%;
-    width: auto;
+    height: 80px;  /* Adjust the height as needed */
+    width: 80px;   /* Adjust the width as needed */
     border-radius: 50%;
-    background-color: #F6828C;
+    background-color: #fff;
 }
-.progress-value{
+
+.progress-value {
     position: relative;
+    font-size: 20px; /* Adjust the font size as needed */
+    font-weight: 600;
+    color: #7d2ae8;
 }
 
-.left, .percentage, .button{
-    padding: 15px;
-}
-
-.subtask{
-    margin-top: 3px; /* Adjust spacing between main and sub tasks */
-    display: grid;
-    grid-template-columns: 1fr 9fr;
-    /*gap: 10px; /* Adjusted gap value */
-}
-
-.subtask .arrow{
+.progress-bar {
+    height: 150px;  /* Adjust the height as needed */
+    width: 150px;   /* Adjust the width as needed */
+    border-radius: 50%;
+    background: conic-gradient(#7d2ae8 3.6deg, #ededed 0deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
     align-self: center;
     justify-self: center;
 }
-.subtask-details{
-    /* padding: 0;
-    display: grid;
-    grid-template-columns: 8fr 2fr 0.5fr;
-    gap: 10px;
-    flex-direction: column;
-    justify-content: space-evenly;
-    height: 100%;
-    background-color: lightblue;
-    align-content: center; */
-    display: grid;
-    grid-template-columns: 1fr 7fr 1fr 0.5fr;
-    gap: 10px; /* Optional: Add gap between grid items */
-    background-color: #e9e2e2;
-    justify-content: space-evenly;
-    height: 100%;
-    align-content: center;
-    font-size: 1rem;
-    border-radius: 20px;
+
+.progress-bar::before {
+    content: "";
+    position: absolute;
+    height: 120px;  /* Adjust the height as needed */
+    width: 120px;   /* Adjust the width as needed */
+    border-radius: 50%;
+    background-color: #415A77;
 }
 
 
+.progress {
+    position: relative;
+    font-size: 40px;
+    font-weight: 600;
+    color: #7d2ae8;
+}
 
+
+.complete {
+    text-align: center;
+}
+
+.bottom{
+    height: 100%;
+    background-color: #5192AD;  
+    border-bottom-left-radius: 26px;
+    border-bottom-right-radius: 26px;
+}
+
+.recent_project {
+    margin-top: 20px; /* Adjust the spacing between progress-bar and recent_project */
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto; /* Center the Recent Project */
+}
+
+.listing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+}
+
+.subtasks {
+    margin-top: 10px;
+}
+
+/* Circular Bar */
+
+.main-substask {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Styles for the subtasks containers */
+.subtasks, .subs2, .sub3, .subs4,.subs5 {
+    margin-top: 10px;
+}
+
+/* Styles for the h4 elements inside subtasks containers */
+.subtasks h4, .subs2 h4, .sub3 h4, .subs4 h4, .subs5 h4 {
+    font-size: 14px; /* Example font size */
+    color: #666; /* Example text color */
+}

@@ -324,17 +324,33 @@
     height: 270px;
 }
 
-.modal-taskview .left .bottom .list-of-task .subtask{
+.modal-taskview .left .bottom .list-of-task .subtask {
     background-color: #eae31b29;
     border-radius: 10px;
     padding: 10px;
+    display: grid;
+    grid-template-columns: 8fr 2fr;
+    align-items: center; 
 }
 
-.modal-taskview .left .bottom .list-of-task .subtask h3{
+.modal-taskview .left .bottom .list-of-task .subtask h3 {
     color: #415A77;
     padding: 1%;
     padding-left: 5%;
     padding-right: 5%;
+    font-size: 20px;
+}
+
+.modal-taskview .left .bottom .list-of-task .subtask input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    align-self: center;
+    justify-self: center;
+}
+
+.modal-taskview .left .bottom .list-of-task input[type="submit"]{
+    width: 40%; 
+    justify-self: right;
 }
 
 .modal-taskview .right{

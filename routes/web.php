@@ -52,6 +52,9 @@ Route::put('/dashboard/tasks/{task}', [TaskController::class, 'editTask'])->midd
 //Delete Task
 Route::get('/dashboard/tasks/{task}/delete', [TaskController::class, 'deleteTask'])->middleware('auth');
 
+//Update SubTask Statuses (True or False)
+Route::post('/dashboard/tasks/{$task}/subtasks/change', [TaskController::class, 'updateSubtasks'])->middleware('auth');
+
 // Registration
 Route::get('/registration', [UserController::class, 'create'])->middleware('guest');
 

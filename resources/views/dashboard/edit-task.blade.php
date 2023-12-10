@@ -160,16 +160,17 @@
                     <div class="bottom-part">
                         <div class="left">
                             <div class="subtasks">
-                                <label>Add SubTasks</label>
+                                <label>Edit SubTasks</label>
                                 @for ($i = 0; $i < 5; $i++)
-                                        <input type="text" name="subtask-{{$i+1}}" placeholder="SubTask {{$i+1}}" value={{$task->subtasks[$i]->name}}>
-                                        @error('subtask-{{$i+1}}')
-                                        <span class="error">{{$message}}</span>
+                                    @if (isset($task->subtasks[$i]))    
+                                        <input type="text" name="subtask-{{ $i+1 }}" placeholder="SubTask {{ $i+1 }}" value="{{ $task->subtasks[$i]->name }}">
+                                        @error('subtask-' . ($i+1))
+                                            <span class="error">Must not be greater than 15 characters.</span>
                                         @enderror
                                     @else
-                                        <input type="text" name="subtask-{{$i+1}}" placeholder="SubTask {{$i+1}}">
-                                        @error('subtask-{{$i+1}}')
-                                        <span class="error">{{$message}}</span>
+                                        <input type="text" name="subtask-{{ $i+1 }}" placeholder="SubTask {{ $i+1 }}">
+                                        @error('subtask-' . ($i+1))
+                                            <span class="error">Must not be greater than 15 characters.</span>
                                         @enderror
                                     @endif
                                 @endfor
@@ -184,12 +185,7 @@
                                     </form>
                                 </div>
                             </div>
-                        </div>
-                        <div class="right">
-                            <div>
-                                <label></label>
-                            </div>
-                        </div>
+                        </div>  
                     </div>
                 </form>
             </div>

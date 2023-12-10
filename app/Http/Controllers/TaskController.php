@@ -54,9 +54,20 @@ class TaskController extends Controller
     public function storeTask(Request $request)
     {
         //Validate Task
+        $request->validate([
+            'name' => 'required|max:15',
+            'description' => ['max:100'],
+            'color' => ['required'],
+            'due-date' => 'nullable|date|after:now',
+            'subtask-1' => 'nullable|max:15',
+            'subtask-2' => 'nullable|max:15',
+            'subtask-3' => 'nullable|max:15',
+            'subtask-4' => 'nullable|max:15',
+            'subtask-5' => 'nullable|max:15',
+        ]);
         $formFields = $request->validate(
             [
-                'name' => 'required|max:20',
+                'name' => 'required|max:15',
                 'description' => ['max:100'],
                 'color' => ['required'],
                 'due-date' => 'nullable|date|after:now',
@@ -66,6 +77,13 @@ class TaskController extends Controller
         $formFields['user_id'] = auth()->id();
         //Create Task
         $task = Tasks::create($formFields);
+        $request->validate([
+            'subtask-1' => 'nullable|max:15',
+            'subtask-2' => 'nullable|max:15',
+            'subtask-3' => 'nullable|max:15',
+            'subtask-4' => 'nullable|max:15',
+            'subtask-5' => 'nullable|max:15',
+        ]);
         // Add Subtasks
         for ($i = 1; $i <= 5; $i++) {
             $subtaskName = $request->input('subtask-' . $i);
@@ -78,7 +96,7 @@ class TaskController extends Controller
             }
         }
         //Redirect
-        return redirect('dashboard/main')->with('message', 'Welcome, ' . $formFields['name']);
+        return redirect('dashboard/main')->with('message', $formFields['name'] . ' created successfully.');
     }
 
     //Edit Task
@@ -89,9 +107,20 @@ class TaskController extends Controller
             abort(403, 'Unauthorized');
         }
         //Validate Task
+        $request->validate([
+            'name' => 'required|max:15',
+            'description' => ['max:100'],
+            'color' => ['required'],
+            'due-date' => 'nullable|date|after:now',
+            'subtask-1' => 'nullable|max:15',
+            'subtask-2' => 'nullable|max:15',
+            'subtask-3' => 'nullable|max:15',
+            'subtask-4' => 'nullable|max:15',
+            'subtask-5' => 'nullable|max:15',
+        ]);
         $formFields = $request->validate(
             [
-                'name' => 'required|max:20',
+                'name' => 'required|max:15',
                 'description' => ['max:60'],
                 'color' => ['required'],
                 'due-date' => 'date|after:now',
@@ -101,9 +130,17 @@ class TaskController extends Controller
         //Edit Task
         $task->update($formFields);
         // Edit Subtasks
+        $request->validate([
+            'subtask-1' => 'nullable|max:15',
+            'subtask-2' => 'nullable|max:15',
+            'subtask-3' => 'nullable|max:15',
+            'subtask-4' => 'nullable|max:15',
+            'subtask-5' => 'nullable|max:15',
+        ]);
+        $counter = 0;
         foreach ($task->subtasks as $subtask) {
-            $subtaskName = $request->input('subtask-' . $subtask->id);
-
+            $subtaskName = $request->input('subtask-' . $counter);
+            $counter++;
             if ($subtaskName) {
                 // Update the subtask if the name is not empty
                 $subtask->update([
@@ -115,8 +152,40 @@ class TaskController extends Controller
                 $subtask->delete();
             }
         }
+        for ($i = $counter; $i <= 5; $i++) {
+            $newSubtaskName = $request->input('subtask-' . $i);
+            if ($newSubtaskName) {
+                $task->subtasks()->create([
+                    'name' => $newSubtaskName,
+                    'status' => false,
+                ]);
+            }
+        }
         //Redirect
-        return redirect('dashboard/main')->with('message', 'Welcome, ' . $formFields['name']);
+        return redirect('dashboard/main')->with('message', $formFields['name'] . ' updated successfully.');
+    }
+
+    //Update Subtasks
+    public function updateSubtasks(Request $request, Tasks $task)
+    {
+        //Validate User
+        if ($task->user_id != auth()->id()) {
+            abort(403, 'Unauthorized');
+        }
+        //Validate Form
+        $request->validate([
+            'subtask_statuses' => 'required|array',
+            'subtask_statuses.*' => 'nullable|boolean',
+        ]);
+        //Update
+        foreach ($task->subtasks as $subtask) {
+            $statusKey = 'subtask_statuses.' . $subtask->id;
+            $subtask->update([
+                'status' => $request->input($statusKey, false),
+            ]);
+        }
+        //Redirect
+        return redirect('dashboard/main')->with('message', 'Subtasks updated successfully');
     }
 
     //Delete Task

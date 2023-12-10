@@ -161,32 +161,27 @@
                                 <label>Add SubTasks</label>
                                 <input type="text" name="subtask-1" placeholder="SubTask 1" value={{old('subtask-1')}}>
                                 @error('subtask-1')
-                                <span class="error">{{$message}}</span>
+                                <span class="error">Must not be greater than 15 characters.</span>
                                 @enderror
                                 <input type="text" name="subtask-2" placeholder="SubTask 2" value={{old('subtask-2')}}>
                                 @error('subtask-2')
-                                <span class="error">{{$message}}</span>
+                                <span class="error">Must not be greater than 15 characters.</span>
                                 @enderror
                                 <input type="text" name="subtask-3" placeholder="SubTask 3" value={{old('subtask-3')}}>
                                 @error('subtask-3')
-                                <span class="error">{{$message}}</span>
+                                <span class="error">Must not be greater than 15 characters.</span>
                                 @enderror
                                 <input type="text" name="subtask-4" placeholder="SubTask 4" value={{old('subtask-4')}}>
                                 @error('subtask-4')
-                                <span class="error">{{$message}}</span>
+                                <span class="error">Must not be greater than 15 characters.</span>
                                 @enderror
                                 <input type="text" name="subtask-5" placeholder="SubTask 5" value={{old('subtask-5')}}>
                                 @error('subtask-5')
-                                <span class="error">{{$message}}</span>
+                                <span class="error">Must not be greater than 15 characters.</span>
                                 @enderror
                             </div>
                             <div class="button">
                             <input type="submit" name="task-name" value="Create Task">
-                            </div>
-                        </div>
-                        <div class="right">
-                            <div>
-                                <label></label>
                             </div>
                         </div>
                     </div>
