@@ -17,11 +17,12 @@
 </head>
 
 <body>
-    <div class="sidebar"><!--Sidebar-->
+    <div class="sidebar" id="sidebar"><!--Sidebar-->
         <div class="top">
             <div class="logo">
                 <img src="{{ asset('images/subtaskLogo.png') }}" alt="logo" class="logoIcon">
             </div>
+            <i class="bx bx-menu bx-md" id="btn"></i>
         </div>
         <div class="user">
             <img src="{{ asset('images/user-img.png') }}" alt="me" class="user-img">
@@ -142,6 +143,7 @@
 </body>
 <script>
     let btn = document.querySelector("#btn")
+    let sidebar = document.getElementById("sidebar");
 
     btn.onclick = function() {
         sidebar.classList.toggle('active')
