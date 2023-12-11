@@ -75,6 +75,7 @@ Route::get('/logout', [UserController::class, 'logout'])->middleware('auth');
 //API
 Route::get('/api/chart-data', [OtherController::class, 'getData']);
 Route::get('/api/graph-data', [OtherController::class, 'getDataLine']);
+Route::get('/api/due-dates', [OtherController::class, 'getDueDates']);
 
 //test
 Route::get('test', function () {

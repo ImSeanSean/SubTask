@@ -9,8 +9,24 @@
     {{-- <link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css') }}"> --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@3.10.2/dist/fullcalendar.min.css" />
     <link href="{{ asset('/css/analytics.css') }}" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>  
     <script src="//unpkg.com/alpinejs" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          var calendarEl = document.getElementById('calendar');
+          var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            events: '/api/due-dates'
+          });
+          calendar.render();
+        });
+    </script>
 </head>
 
 <body>
@@ -93,9 +109,15 @@
                     <h2>Summary</h2>
                 </div> 
                 <div class="summary">
-                    <ul>
-                        
-                    </ul>
+                        <ul>
+                            @foreach($logs->items() as $log)
+                                <h4>{{$log->log_type}}</h4>
+                                <p>{{$log->description}}</p>
+                            @endforeach
+                        </ul>
+                        <div class="pagination">
+                            {{$logs->links()}}
+                        </div>
                 </div>
             </div>
             <div class="bottom">
@@ -131,7 +153,7 @@
                 <div class="heading">
                     <h2>Tasks Overview</h2>
                 </div>
-                <div class="calendar">
+                <div class="calendar" id="calendar">
 
                 </div>
             </div>
@@ -141,8 +163,8 @@
                 </div>
                 <div class="progress-bar">
                     <div class="total-bar">
-                        <div class="percentage-bar">
-                            <p>0%</p>
+                        <div class="percentage-bar" style="width: {{$percentage}}">
+                            <p>{{$percentage}}%</p>
                         </div>
                     </div>
                 </div>
@@ -150,10 +172,6 @@
         </div>
     </div>
     <x-flash-message />
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 <script>
     let btn = document.querySelector("#btn")

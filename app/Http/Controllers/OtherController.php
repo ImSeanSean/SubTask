@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\Tasks;
 use App\Models\ActivityLogs;
+use App\Models\subtasks;
 use Illuminate\Http\Request;
 
 class OtherController extends Controller
@@ -12,7 +13,12 @@ class OtherController extends Controller
     //View Analytics
     public function showAnalytics()
     {
-        return view('dashboard.analytics');
+        $logs = ActivityLogs::simplePaginate(7);
+        $completedSubtasksCount = Subtasks::where('status', 1)->count();
+        $totalSubtasksCount = Subtasks::count();
+        $percentage = ($completedSubtasksCount / $totalSubtasksCount) * 100;
+        $percentage = $percentage . '%';
+        return view('dashboard.analytics', compact('logs', 'percentage'),);
     }
 
     public function getData()
@@ -83,5 +89,23 @@ class OtherController extends Controller
         }
 
         return $data;
+    }
+
+    public function getDueDates()
+    {
+        $tasks = Tasks::whereNotNull('due-date')->get();
+
+        // Format tasks for FullCalendar
+        $formattedTasks = $tasks->map(function ($task) {
+            // Convert the "due-date" string to a DateTime object
+            $dueDate = \Carbon\Carbon::parse($task->{'due-date'});
+
+            return [
+                'title' => $task->name,
+                'start' => $dueDate->format('Y-m-d H:i:s'), // Adjust the format as needed
+            ];
+        });
+
+        return response()->json($formattedTasks);
     }
 }

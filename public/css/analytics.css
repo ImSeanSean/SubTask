@@ -214,7 +214,8 @@ hr {
 }
 
 .main-content .left .top{
-    border: black solid 5px;
+    /* border: black solid 3px; */
+    background-color: #ffffffd9;
 }
 
 .main-content .left .top .heading{
@@ -222,14 +223,18 @@ hr {
 }
 
 .main-content .left .bottom{
-    border: black solid 5px;
+    /* border: black solid 3px; */
     display: grid;
-    grid-template-rows: 1fr 9fr;
+    grid-template-rows: 0.9fr 9.1fr;
+    background-color: #ffffffd9;
 }
 
 .main-content .left .bottom .heading{
-    padding-left: 5%;
-    border-bottom: black solid 5px;
+    border-radius: 0;
+    border-bottom: black solid 3px;
+    width: 90%;
+    justify-self: center;
+    align-self: center;
 }
 
 .main-content .left .bottom .graphs{
@@ -239,18 +244,20 @@ hr {
 }
 
 .main-content .left .bottom .graphs .line-graph{
-    border-bottom: black solid 5px;
+    border-bottom: black solid 3px;
+    border-radius: 0;
+    justify-self: center;
     height: 100%;
-    width: 100%;
+    width: 90%;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .main-content .left .bottom .graphs .line-graph .programming-stats{
     height: 100%;
     width: 100%;
     display: flex;
-    align-items: center;
-    padding-left: 20px;
-    padding-right: 20px;
+    align-items: center;    
 }
 
 .main-content .left .bottom .graphs .line-graph .chart-container{
@@ -286,6 +293,21 @@ hr {
 .programming-stats .details .percentage{    
     font-weight: 600;
     color: #415A77;
+}
+
+.pagination {
+    display: inline-block;
+    margin-bottom: 0; /* Adjust margin as needed */
+}
+
+.pagination li {
+    display: inline;
+    margin-right: 5px; /* Adjust margin as needed */
+}
+
+.pagination li a {
+    padding: 5px 10px; /* Adjust padding as needed */
+    font-size: 14px; /* Adjust font size as needed */
 }
 
 /* .main-content .left .bottom .graphs .pie-graph{
@@ -335,26 +357,41 @@ hr {
 
 .main-content .right{
     display: grid;
-    grid-template-rows: 8.5fr 1.5fr;
+    row-gap: 1rem;
+    grid-template-rows: 8.2fr 1.8fr;
+}
+
+.main-content div{
+    border-radius: 20px;
 }
 
 .main-content .right .top{
-    border: black solid 5px;
+    background-color: #ffffffd9;
+    /* border: black solid 3px; */
     display: flex;
     flex-direction: column;
+    padding: 10px;
 }
 
 .main-content .right .top .heading{
     padding-left: 5%;
+    border-bottom: #000 solid 3px;
+    border-radius: 0;
 }
 
 .main-content .right .top .calendar{
-
+    padding: 10px;
+    height: 100%;
+    transform: scale(0.95); /* Adjust the scale factor as needed */
+    background-color: #eeeeee69;
+    /* transform-origin: 0 0; Adjust the transform origin to control the scaling point */
 }
 
 .main-content .right .bottom {
     display: flex;
     flex-direction: column;
+    background-color: #ffffffd9;
+    padding: 10px;
 }
 
 .main-content .right .bottom .heading{
@@ -381,7 +418,7 @@ hr {
     height: 100%;
     padding: 0;
     margin: 0;
-    width: 100%;
+
 }
 
 .main-content .right .bottom .percentage-bar p {
