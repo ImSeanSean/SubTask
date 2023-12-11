@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Tasks;
 use Illuminate\Http\Request;
+use App\Events\ActivityNotification;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
@@ -95,6 +96,8 @@ class TaskController extends Controller
                 ]);
             }
         }
+        //Notification
+        event(new ActivityNotification(auth()->user(), 'New Task', $formFields['name'] . ' created successfully.', $task));
         //Redirect
         return redirect('dashboard/main')->with('message', $formFields['name'] . ' created successfully.');
     }
@@ -153,6 +156,8 @@ class TaskController extends Controller
                 ]);
             }
         }
+        //Notification
+        event(new ActivityNotification(auth()->user(), 'Task Edited', $formFields['name'] . ' has been edited.', $task));
         //Redirect
         return redirect('dashboard/main')->with('message', $formFields['name'] . ' updated successfully.');
     }
@@ -187,6 +192,7 @@ class TaskController extends Controller
             abort(403, 'Unauthorized');
         }
         $task->delete();
+        event(new ActivityNotification(auth()->user(), 'Task Deleted', $task->name . ' has been deleted.', $task));
         return redirect('dashboard/main')->with('message', 'Listing Deleted Succcessfully');
     }
 }

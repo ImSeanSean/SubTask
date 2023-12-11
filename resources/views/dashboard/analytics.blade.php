@@ -93,7 +93,9 @@
                     <h2>Summary</h2>
                 </div> 
                 <div class="summary">
-
+                    <ul>
+                        
+                    </ul>
                 </div>
             </div>
             <div class="bottom">
@@ -102,12 +104,22 @@
                 </div>
                 <div class="graphs">
                     <div class="line-graph">
-
+                        <h2>Activity in Last 7 Days</h2>
+                        <div class="programming-stats">
+                            <div class="chart-container">
+                                <canvas class="graph"></canvas>
+                            </div>
+                        </div>
                     </div>
                     <div class="pie-graph">
-                        <div class="percentage">
-                            <div class="circle-percentage">
-                                <span class="progress-value">0%</span>
+                        <h2>Statistics</h2>
+                        <div class="programming-stats">
+                            <div class="chart-container">
+                                <canvas class="chart"></canvas>
+                            </div>
+                            <div class="details">
+                                <ul>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -141,6 +153,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 <script>
     let btn = document.querySelector("#btn")
@@ -149,6 +162,82 @@
     btn.onclick = function() {
         sidebar.classList.toggle('active')
     };
+    //Line Graph
+    const graph = document.querySelector(".graph");
+    fetch('/api/graph-data')
+            .then((response) => response.json())
+            .then((data) => {
+                // Update your chart with the received data
+                updateGraph(data);
+            }).catch((error) => console.error("Error fetching data:", error));
+    
+    function updateGraph(data){
+        new Chart(graph, {
+            type: "line",
+            data: {
+                labels: data.labels,
+                datasets: [{
+                    label: 'Last 7 Days',
+                    data: data.data,
+                    tension: 0.1,
+            }]
+            },
+            options: {
+                borderWidth:3,
+                borderRadius: 2,
+                hoverBorderWidth: 0,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        })
+    }
+    //Pie Chart
+    const chart = document.querySelector(".chart");
+    const ul= document.querySelector(".programming-stats ul");
+
+    fetch('/api/chart-data')
+            .then((response) => response.json())
+            .then((data) => {
+                // Update your chart with the received data
+                updateChart(data);
+            }).catch((error) => console.error("Error fetching data:", error));
+
+    function updateChart(data){
+            new Chart(chart, {
+            type: "doughnut",
+            data: {
+                labels: data.labels,
+                datasets: [
+                    {
+                        label: "Percentage",
+                        data: data.dataPercentage,
+                    }
+                ]
+            },
+            options: {
+                borderWidth:10,
+                borderRadius: 2,
+                hoverBorderWidth: 0,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+
+        const populateUl = () => {
+            data.labels.forEach((l, i) => {
+                let li = document.createElement("li");
+                li.innerHTML = `${l}: <span class='percentage'>${data.data[i]}</span>`;
+                ul.appendChild(li);
+            });
+        }
+        populateUl();
+    }
 </script>
 
 </html>

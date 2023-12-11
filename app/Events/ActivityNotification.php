@@ -2,24 +2,34 @@
 
 namespace App\Events;
 
+use App\Models\subtasks;
+use App\Models\Tasks;
+use App\Models\User;
 use Illuminate\Broadcasting\Channel;
-use Illuminate\Broadcasting\InteractsWithSockets;
-use Illuminate\Broadcasting\PresenceChannel;
-use Illuminate\Broadcasting\PrivateChannel;
-use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
-use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Broadcasting\PrivateChannel;
+use Illuminate\Broadcasting\PresenceChannel;
+use Illuminate\Foundation\Events\Dispatchable;
+use Illuminate\Broadcasting\InteractsWithSockets;
+use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
 class ActivityNotification
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    /**
-     * Create a new event instance.
-     */
-    public function __construct()
+    public $user;
+    public $actionType;
+    public $actionDescription;
+    public $task;
+    public $subtask;
+
+    public function __construct(User $user, $actionType, $actionDescription, Tasks $task = null, subtasks $subtask = null)
     {
-        //
+        $this->user = $user;
+        $this->actionType = $actionType;
+        $this->actionDescription = $actionDescription;
+        $this->task = $task;
+        $this->subtask = $subtask;
     }
 
     /**
