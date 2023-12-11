@@ -105,19 +105,28 @@
     <div class="main-content"><!--Dashboard-->
         <div class="left">
             <div class="top">
-                <div class="heading">
-                    <h2>Summary</h2>
-                </div> 
-                <div class="summary">
+                <div class="title">
+                    <h1>Report & Analytics</h1>
+                </div>
+                <div class="body">
+                    <div class="heading">
+                        <h2>Summary</h2>
+                    </div> 
+                    <div class="summary">
                         <ul>
+                            
                             @foreach($logs->items() as $log)
+                            <li>
                                 <h4>{{$log->log_type}}</h4>
                                 <p>{{$log->description}}</p>
+                                <label>{{$log->created_at}}</label>
+                            </li>
                             @endforeach
                         </ul>
                         <div class="pagination">
                             {{$logs->links()}}
                         </div>
+                    </div>
                 </div>
             </div>
             <div class="bottom">
@@ -126,7 +135,7 @@
                 </div>
                 <div class="graphs">
                     <div class="line-graph">
-                        <h2>Activity in Last 7 Days</h2>
+                        <h3>Activity in Last 7 Days</h3>
                         <div class="programming-stats">
                             <div class="chart-container">
                                 <canvas class="graph"></canvas>
@@ -134,7 +143,7 @@
                         </div>
                     </div>
                     <div class="pie-graph">
-                        <h2>Statistics</h2>
+                        <h3>Completion</h3>
                         <div class="programming-stats">
                             <div class="chart-container">
                                 <canvas class="chart"></canvas>
@@ -162,11 +171,9 @@
                     <h2>Total Progress</h2>
                 </div>
                 <div class="progress-bar">
-                    <div class="total-bar">
                         <div class="percentage-bar" style="width: {{$percentage}}">
-                            <p>{{$percentage}}%</p>
+                            <p>{{$percentage}}</p>
                         </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -232,6 +239,11 @@
                     {
                         label: "Percentage",
                         data: data.dataPercentage,
+                        backgroundColor: [
+                        'rgba(130, 246, 156, 0.8)', // Completed color
+                        'rgba(246, 130, 140, 0.8)', // Pending color
+                        'rgba(130, 204, 246, 0.8)'  // In-progress color
+                        ]
                     }
                 ]
             },

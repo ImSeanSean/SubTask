@@ -16,7 +16,7 @@ class OtherController extends Controller
         $logs = ActivityLogs::simplePaginate(7);
         $completedSubtasksCount = Subtasks::where('status', 1)->count();
         $totalSubtasksCount = Subtasks::count();
-        $percentage = ($completedSubtasksCount / $totalSubtasksCount) * 100;
+        $percentage = round(($completedSubtasksCount / $totalSubtasksCount) * 100);;
         $percentage = $percentage . '%';
         return view('dashboard.analytics', compact('logs', 'percentage'),);
     }
