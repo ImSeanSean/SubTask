@@ -9,11 +9,8 @@
     {{-- <link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css') }}"> --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link href="{{ asset('/css/main-dashboard.css') }}" rel="stylesheet">
-    <link href="{{ asset('/css/components.css') }}" rel="stylesheet">
-    <link href="{{ asset('/css/single-task.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/analytics.css') }}" rel="stylesheet">
     <script src="//unpkg.com/alpinejs" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
@@ -86,57 +83,61 @@
                         <span class="nav-item" style="color:#334152; font-size:16px; padding-left: 5px; padding-bottom: 20px;">Logout</span>
                     </button>
                 </form> --}}
-                <span class="tooltip">Logout</span>
             </li>
         </ul>
-    </div>
-
+    </div>                                              
     <div class="main-content"><!--Dashboard-->
-        <div class="taskboard">
-            <div class="upper-container"> <!--Upper Container-->
-                <div class="search"> <!--Search-->
-                    <form>
-                        <button type="submit" class="border-0"><i class='bx bx-search-alt-2 bx-md' style='color:#415a77'></i></button>
-                        <input type="text" id="search" name="search" placeholder="Search here...">
-                    </form>
-                </div>
-                <div class="notification">
-                    <i class='bx bxs-bell bx-md' style='color:#415a77'  ></i>
+        <div class="left">
+            <div class="top">
+                <div class="heading">
+                    <h2>Summary</h2>
+                </div> 
+                <div class="summary">
+
                 </div>
             </div>
-
-            <hr><!--Line Break-->
-
-            <div class="taskboard-center"><!--List of Tasks-->
-                <div class="upper-taskboard">
-                    <div class="my-tasks">
-                        <p>My Tasks</p>
-                    </div>
-                    <div class="sorting">
-                        <form id="sortForm" action="/dashboard/main" method="get">
-                            <label for="sortBy">Sort by:</label>
-                            <select id="sortBy" name="sort" onchange="submitForm()">
-                                <option></option>
-                                <option value="due-date">Due Date</option>
-                                <option value="completed_subtasks_count">Completion</option>
-                                <option value="updated_at">Recently Changed</option>
-                            </select>
-                        </form>
-                    </div>
+            <div class="bottom">
+                <div class="heading">
+                    <h2>Graph & Statistics</h2>
                 </div>
-                <div class="task-list">
-                    <x-task-component :tasks="$tasks"/>
+                <div class="graphs">
+                    <div class="line-graph">
+
+                    </div>
+                    <div class="pie-graph">
+                        <div class="percentage">
+                            <div class="circle-percentage">
+                                <span class="progress-value">0%</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+        <div class="right">
+            <div class="top">
+                <div class="heading">
+                    <h2>Tasks Overview</h2>
+                </div>
+                <div class="calendar">
 
-        <div class="secondary-area"><!--Secondary Area-->
-            <p> Task Completion</p>
+                </div>
+            </div>
+            <div class="bottom">
+                <div class="heading">
+                    <h2>Total Progress</h2>
+                </div>
+                <div class="progress-bar">
+                    <div class="total-bar">
+                        <div class="percentage-bar">
+                            <p>0%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <x-add-task />
     <x-flash-message />
-
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
@@ -148,10 +149,6 @@
     btn.onclick = function() {
         sidebar.classList.toggle('active')
     };
-
-    function submitForm() {
-            document.getElementById('sortForm').submit();
-        }
 </script>
 
 </html>

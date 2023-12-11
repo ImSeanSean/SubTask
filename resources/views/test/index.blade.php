@@ -143,8 +143,10 @@
                     <div class="listing">
                         <div class="title">
                             <h2>OPOPOPO</h2>
+                            <h4>Due date</h4>
+                            <p>amamamamamam</p>
                         </div>
-                        <div class="main-substask">
+                        <div class="main-subtask">
                             <div class="subtasks">
                                 <h4>we</h4>
                             </div>

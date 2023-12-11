@@ -99,8 +99,8 @@
     overflow: hidden;
     text-overflow: ellipsis;
     padding-right: 10px;
-    flex-grow: 1; /* This will make the username take up the remaining space */
-    text-align: center; /* Center the text */
+    flex-grow: 1; 
+    text-align: center; 
 }
 
 .sidebar ul li {
@@ -306,8 +306,7 @@ hr {
 
 .secondary-area .top{
     display: grid;
-    padding: 20px;
-    border-bottom: #666 solid 5px;
+    padding-top: 20px;
 }
 
 .circular-progress {
@@ -353,8 +352,8 @@ hr {
 .progress-bar::before {
     content: "";
     position: absolute;
-    height: 120px;  /* Adjust the height as needed */
-    width: 120px;   /* Adjust the width as needed */
+    height: 120px;  
+    width: 120px; 
     border-radius: 50%;
     background-color: #415A77;
 }
@@ -369,45 +368,47 @@ hr {
 
 
 .complete {
-    text-align: center;
+    align-self: center;
+    justify-self: center;
 }
 
 .bottom{
     height: 100%;
-    background-color: #5192AD;  
     border-bottom-left-radius: 26px;
     border-bottom-right-radius: 26px;
+    padding: 15px;
 }
 
 .recent_project {
-    margin-top: 20px; /* Adjust the spacing between progress-bar and recent_project */
+    margin-top: 20px; 
     border-radius: 10px;
     margin-left: auto;
-    margin-right: auto; /* Center the Recent Project */
+    margin-right: auto; 
+    height: 100%;
 }
 
 .listing {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    background-color: #5194AD;
+    height: 95%;
+    border-radius: 26px;
+    padding: 20px;
 }
 
 .title {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+   
+    
 }
 
 .subtasks {
     margin-top: 10px;
 }
 
-/* Circular Bar */
-
-.main-substask {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.main-subtask{
+    padding-top: 10px;
 }
+
 
 /* Styles for the subtasks containers */
 .subtasks, .subs2, .sub3, .subs4,.subs5 {

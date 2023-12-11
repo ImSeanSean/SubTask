@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\OtherController;
 use App\Http\Controllers\TaskController;
 use App\Models\Tasks;
 use Faker\Provider\Lorem;
@@ -54,6 +55,9 @@ Route::get('/dashboard/tasks/{task}/delete', [TaskController::class, 'deleteTask
 
 //Update SubTask Statuses (True or False)
 Route::post('dashboard/tasks/{task}/subtasks/change', [TaskController::class, 'updateSubtasks'])->middleware('auth');
+
+//View Analytics
+Route::get('/dashboard/analytics', [OtherController::class, 'showAnalytics'])->middleware('auth');
 
 // Registration
 Route::get('/registration', [UserController::class, 'create'])->middleware('guest');

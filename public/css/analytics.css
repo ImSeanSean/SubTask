@@ -1,0 +1,344 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/*Start of Sidebar*/
+
+/* .logoIcon {
+    width: 5px !important;
+    height: 5px;
+    border-radius: 50%;
+    border: 1px solid #000;
+} */
+
+.user-img {
+    width: 50px;
+    border-radius: 100%;
+    border: 1px solid #000;
+}
+
+.sidebar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 80px;
+    background-color: #eed5c2;
+    padding: .4rem .8rem;
+    transition: all 0.5 ease;
+}
+
+.sidebar.active~.main-content {
+    left: 175px;
+    width: calc(100% - 175px);
+    transition: all 0.5s ease;
+}
+
+.sidebar.active {
+    width: 190px;
+}
+
+.sidebar.active .user {
+    margin-top: 1rem; 
+    margin-left: 30%;
+}
+
+.sidebar #btn {
+    padding-top: 10%;
+    position: relative;
+    color: #415A77;
+    top: 0px;
+    left: 50%;
+    font-size: 1.2rem;
+    line-height: 50px;
+    transform: translateX(-50%);
+}
+
+.sidebar.active #btn {
+    left: 45%;
+}
+
+.sidebar .top .logo img{
+    padding-top: 20px;
+    width: 80%;  
+    height: auto;
+    opacity: 0;
+    transition: none;
+}
+
+.sidebar.active .top .logo img {
+    padding-top: 20px;
+    padding-left: 10px;
+    width: 80%;  
+    height: auto;
+    opacity: 1;
+    transition: 0.5s;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    margin-top: 2rem 0;
+}
+
+.bold {
+    font-weight: 600
+}
+
+.sidebar p {
+    opacity: 0;
+}
+
+.sidebar.active p {
+    opacity: 1;
+    color: #334152;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 10px;
+    flex-grow: 1; /* This will make the username take up the remaining space */
+    text-align: center; /* Center the text */
+}
+
+.sidebar ul li {
+    position: relative;
+    list-style-type: none;
+    height: 50px;
+    width: 90%;
+    margin: 0.8rem auto;
+    line-height: 50px;
+}
+
+.sidebar ul li hr.solid {
+    border-top: 100px solid #334152;
+    /* Change the color to match your design */
+    width: 120px;
+    /* Adjust the width as needed */
+}
+
+.sidebar ul li a {
+    color: #334152;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 0.8 rem;
+}
+
+.sidebar ul li a:hover {
+    background-color: #fff;
+    color: #12171e;
+}
+
+.sidebar ul li a i {
+    min-width: 50px;
+    text-align: center;
+    height: 50px;
+    border-radius: 12px;
+    line-height: 50px;
+}
+
+.sidebar .nav-item {
+    opacity: 0;
+}
+
+.sidebar.active .nav-item {
+    opacity: 1;
+}
+
+.sidebar ul li .tooltip {
+    position: absolute;
+    left: 125px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0.5rem 0.8rem rgba(0, 0, 0, 0.2);
+    border-radius: .6rem;
+    padding: .4rem 1.2 rem;
+    line-height: 1.8rem;
+    z-index: 20;
+    opacity: 0;
+}
+
+.sidebar ul li:hover .tooltip {
+    position: absolute;
+    left: 125px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0.5rem 0.8rem rgba(0, 0, 0, 0.2);
+    border-radius: .6rem;
+    padding: .4rem 1.2 rem;
+    line-height: 1.8rem;
+    z-index: 20;
+    opacity: 1;
+}
+
+.sidebar ul li form{
+    background-color: none;
+}
+
+.sidebar.active ul li .tooltip {
+    display: none;
+}
+/*End of Sidebar*/
+
+/*Main Content*/
+hr {
+    margin: 10px;
+    height: 2.5px;
+    border: 0;
+    background-color: #000;
+}
+
+
+.main-content {
+    position: relative;
+    background: #eee;
+    min-height: 100vh;
+    top: 0;
+    left: 80px;
+    transition: all 0.5s ease;
+    width: calc(100% - 80px);
+    padding: 1rem;
+    margin-left: 0;
+    display: grid;
+    grid-template-columns: 6fr 4fr;
+    gap: 1rem;
+}
+
+.main-content .left{
+    display: grid;
+    column-gap: 1rem;
+    grid-template-columns: 3.5fr 6.5fr;
+}
+
+.main-content .left .top{
+    border: black solid 5px;
+}
+
+.main-content .left .top .heading{
+    padding-left: 5%;
+}
+
+.main-content .left .bottom{
+    border: black solid 5px;
+    display: grid;
+    grid-template-rows: 1fr 9fr;
+}
+
+.main-content .left .bottom .heading{
+    padding-left: 5%;
+    border-bottom: black solid 5px;
+}
+
+.main-content .left .bottom .graphs{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    width: 100%;
+}
+
+.main-content .left .bottom .graphs .line-graph{
+    border-bottom: black solid 5px;
+}
+
+.main-content .left .bottom .graphs .pie-graph{
+    height: 100%;
+}
+
+.main-content .left .bottom .graphs .percentage{
+    padding: 10px;
+    height: 100%;
+    width: 100%;
+}
+
+.main-content .left .bottom .graphs .circle-percentage{
+    position: relative;
+    height: 100%;
+    width: 70%;
+    border-radius: 50%;
+    background-color: #5194ad;
+    background: conic-gradient(#5194ad 3.6deg, #ededed 0deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-content .left .bottom .graphs .circle-percentage::before{
+    content: "";
+    position: absolute;
+    height: 72.5%;
+    width: 70%;
+    border-radius: 50%;
+    background-color: #f9f89e;
+}
+
+.main-content .left .bottom .graphs .percentage span{
+    position: relative;
+    color: #415a77;
+    z-index: 1;
+    font-size: 150%;
+    font-weight: bold;
+}
+
+.main-content .right{
+    display: grid;
+    grid-template-rows: 8.5fr 1.5fr;
+}
+
+.main-content .right .top{
+    border: black solid 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content .right .top .heading{
+    padding-left: 5%;
+}
+
+.main-content .right .top .calendar{
+
+}
+
+.main-content .right .bottom {
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content .right .bottom .heading{
+    padding-left: 5%;
+}
+
+.main-content .right .bottom .progress-bar {
+    background-color: aqua;
+    padding: 1px;
+    height: 100%;
+    border: #415A77 solid 5px;
+    border-radius: 20px;
+}
+
+.main-content .right .bottom .total-bar {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.main-content .right .bottom .percentage-bar {
+    background-color: aquamarine;
+    border-radius: 10px;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.main-content .right .bottom .percentage-bar p {
+    margin: 0;
+    right: 0;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 20px;
+    align-self: center;
+    justify-self: center;
+    color: gray;
+}
