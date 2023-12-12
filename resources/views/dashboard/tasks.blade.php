@@ -53,13 +53,6 @@
             </li>
             <li>
                 <a href="#">
-                    <i class='bx bx-collapse-alt bx-sm'></i>
-                    <span class="nav-item">SubSpaces</span>
-                </a>
-                {{-- <span class="tooltip">SubSpaces</span> --}}
-            </li>
-            <li>
-                <a href="#">
                     <i class='bx bx-cog bx-sm'></i>
                     <span class="nav-item">Settings</span>
                 </a>

@@ -10,6 +10,11 @@ use Illuminate\Http\Request;
 
 class OtherController extends Controller
 {
+    //Notifications
+    public function clearNotifications()
+    {
+    }
+
     //View Analytics
     public function showAnalytics()
     {

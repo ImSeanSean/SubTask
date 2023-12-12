@@ -59,13 +59,6 @@
             </li>
             <li>
                 <a href="#">
-                    <i class='bx bx-collapse-alt bx-sm'></i>
-                    <span class="nav-item">SubSpaces</span>
-                </a>
-                {{-- <span class="tooltip">SubSpaces</span> --}}
-            </li>
-            <li>
-                <a href="#">
                     <i class='bx bx-cog bx-sm'></i>
                     <span class="nav-item">Settings</span>
                 </a>
@@ -101,7 +94,61 @@
                     </form>
                 </div>
                 <div class="notification">
-                    <i class='bx bxs-bell bx-md' style='color:#415a77'  ></i>
+                    <i class='bx bxs-bell bx-md' style='color:#415a77'  onclick="toggleNotif()"><span>17</span></i>
+                </div>
+                <div class="notification-box" id="box">
+                    <h2>Notification<span>17</span></h2> 
+                    <div class="notification-item">
+                        <div class="text"><p>Web Development Due-Date is in 3 days!</p></div>
+                    </div>
+                    <div class="notification-item">
+                        <div class="text"><p>Web Development Due-Date is in 3 days!</p></div>
+                    </div>
+                    <div class="notification-item">
+                        <div class="text"><p>Web Development Due-Date is in 3 days!</p></div>
+                    </div>
+                    <div class="notification-item">
+                        <div class="text"><p>Web Development Due-Date is in 3 days!</p></div>
+                    </div>
+                    <div class="notification-item">
+                        <div class="text"><p>Web Development Due-Date is in 3 days!</p></div>
+                    </div>
+                    <div class="notification-item">
+                        <div class="text"><p>Web Development Due-Date is in 3 days!</p></div>
+                    </div>
+                    <div class="notification-item">
+                        <div class="text"><p>Web Development Due-Date is in 3 days!</p></div>
+                    </div>
+                    <div class="notification-item">
+                        <div class="text"><p>Web Development Due-Date is in 3 days!</p></div>
+                    </div>
+                    <div class="notification-item">
+                        <div class="text"><p>Web Development Due-Date is in 3 days!</p></div>
+                    </div>
+                    <div class="notification-item">
+                        <div class="text"><p>Web Development Due-Date is in 3 days!</p></div>
+                    </div>
+                    <div class="notification-item">
+                        <div class="text"><p>Web Development Due-Date is in 3 days!</p></div>
+                    </div>
+                    <div class="notification-item">
+                        <div class="text"><p>Web Development Due-Date is in 3 days!</p></div>
+                    </div>
+                    <div class="notification-item">
+                        <div class="text"><p>Web Development Due-Date is in 3 days!</p></div>
+                    </div>
+                    <div class="notification-item">
+                        <div class="text"><p>Web Development Due-Date is in 3 days!</p></div>
+                    </div>
+                    <div class="notification-item">
+                        <div class="text"><p>Web Development Due-Date is in 3 days!</p></div>
+                    </div>
+                    <div class="notification-item">
+                        <div class="text"><p>Web Development Due-Date is in 3 days!</p></div>
+                    </div>
+                    <div class="clear-button">
+                        <a href="/tasks/clear-notifications">clear notifications</a>
+                    </div>
                 </div>
             </div>
 
@@ -131,8 +178,59 @@
         </div>
 
         <div class="secondary-area"><!--Secondary Area-->
-            <p> Task Completion</p>
-        </div>
+            <div class="top">
+                <div class="progress-bar">
+                    <div class="circular-progress">
+                        <span class="progress-value">0%</span>
+                    </div>
+                    <div class="progress">
+                        <span class="progress"></span>
+                    </div>
+                </div>
+                <div class="complete">
+                    <h3>3 Completed</h3>
+                    <p>from 5 projects</p>
+                </div>
+            </div>
+            <div class="bottom">
+                <div class="recent_project"><!-- Recent Project -->
+                    <div class="listing">
+                            <div class="title">
+                                <h2>Discrete</h2>
+                                <h4>Due date</h4>
+                                <p>Kaya mo yan ikaw paba?ikaw na yan eh</p>
+                            </div>
+                            <div class="main-subtask">
+                                <div class="subtasks">
+                                    <h4>video</h4>
+                                    <input type="checkbox">
+                                </div>
+                                <div class="subs2">
+                                    <h4>photoshoot</h4>
+                                    <input type="checkbox">
+                                </div>
+                                <div class="sub3">
+                                    <h4>music video</h4>
+                                    <input type="checkbox">
+                                </div>
+                                <div class="subs4">
+                                    <h4>kipay</h4>
+                                    <input type="checkbox">
+                                </div>
+                                <div class="subs5">
+                                    <h4>tite</h4>
+                                    <input type="checkbox">
+                                </div>
+                                <div class="subs-completed">
+                                    <h3>1 out 5</h3>
+                                    <p>Completed</p>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <script src="script.js"></script>
+    </div>
     </div>
     <x-add-task />
     <x-flash-message />
@@ -152,6 +250,24 @@
     function submitForm() {
             document.getElementById('sortForm').submit();
         }
+
+    var box = document.getElementById('box');
+    var down = false;
+
+    function toggleNotif() {
+    if (down) {
+        box.style.height = '0px';
+        box.style.opacity = '0px';
+        box.style.display = 'none'; // hide the box
+        down = false;
+    } else {
+        box.style.height = '510px';
+        box.style.opacity = '1';
+        box.style.display = 'block'; // show the box
+        down = true;
+    }
+
+}
 </script>
 
 </html>

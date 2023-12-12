@@ -200,8 +200,6 @@
 .modal-taskview{
     position: relative;
     background-color: #FEFFCA;
-    display: grid;
-    grid-template-columns: 8fr 2fr;
     gap: 3%;
     padding: 50px;
     border-radius:20px;
@@ -353,6 +351,37 @@
     justify-self: right;
 }
 
+.modal-taskview .left .buttons{
+    background-color: #eae31b29;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    font-size: 25px;
+    height: 100%;
+    width: 100%;
+}
+
+.modal-taskview .left .buttons button{
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.modal-taskview .left .buttons button.check{
+    font-size: 30px;
+}
+
+.modal-taskview .left .buttons button.trash{
+    font-size: 20px;
+}
+
+.modal-taskview .left .buttons button.update{
+    font-size: 23px;
+}
+
 .modal-taskview .right{
     background-color: rgba(130, 130, 130, 0.08);
     border-radius: 10px;
@@ -399,33 +428,5 @@
     border-bottom: 2.5px solid rgb(236, 236, 92);
 }
 
-.modal-taskview .right .buttons{
-    background-color: rgb(236, 236, 92);
-    padding-left: 10px;
-    padding-right: 10px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 10px;
-    border: 2.5px solid rgb(236, 236, 92);
-    border-top: 5px solid rgb(236, 236, 92);
-    font-size: 50px;
-}
 
-.modal-taskview .right .buttons button{
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-.modal-taskview .right .buttons button.check{
-    font-size: 30px;
-}
-
-.modal-taskview .right .buttons button.trash{
-    font-size: 20px;
-}
-
-.modal-taskview .right .buttons button.update{
-    font-size: 23px;
-}
 

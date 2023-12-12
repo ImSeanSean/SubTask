@@ -72,6 +72,8 @@ Route::post('/users/authenticate', [UserController::class, 'authenticate']);
 //Log User out
 Route::get('/logout', [UserController::class, 'logout'])->middleware('auth');
 
+//Notifications
+Route::get('/tasks/clear-notifications', [OtherController::class, 'clearNotifications']);
 //API
 Route::get('/api/chart-data', [OtherController::class, 'getData']);
 Route::get('/api/graph-data', [OtherController::class, 'getDataLine']);

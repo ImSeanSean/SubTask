@@ -209,6 +209,90 @@
     padding: 10px;
     padding-left: 30px;
     padding-right: 30px;
+    position: relative;
+}
+
+.upper-container .notification:hover{
+    opacity: .7;
+}
+
+.notification span{
+    color: #F6828C;
+    background-color: #F8BFC4;
+    border-radius: 50%;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 1px;
+}
+
+.notification-box{
+    width: 300px;
+    height: 0px;
+    opacity: 0;
+    position: absolute;
+    transition-property: 63px;
+    right: 35px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    top: 50px;
+    z-index: 5;
+    border-radius: 20px;
+    background-color: #eee;
+    overflow-y: auto;
+}
+
+.notification-box h2{
+    font-size: 18px;
+    padding: 20px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    border-bottom: 1px solid #eee;
+    color: #D9D9D9;
+    background-color: gray;
+}
+
+.notification-box h2 span {
+    color: #F8BFC4;
+    padding-left: 10px;
+}
+
+.notification-item{
+    display: flex;
+    border-bottom: 1px solid #D9D9D9;
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.notification-item{
+    background-color: #eee;
+}
+
+.notification-item .text p{
+    color: #415A77;
+    font-size: 13.5px;
+    margin: 0;
+    font-weight: bold;
+}
+
+.notification-box .clear-button{
+    /* position: absolute;
+    bottom: 1%;
+    right: 6%; */
+    text-align: right;
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+.upper-container i{
+    cursor: pointer;
+    display: inline-block;
+}
+
+.upper-container i span{
+    vertical-align: top;
+    margin-left: -25px;
 }
 
 .search form i {
@@ -287,14 +371,16 @@ hr {
 /*End of Taskboard*/
 
 /*Start of Secondary Area*/
+/*Start of Secondary Area*/
 .secondary-area {
     background-color: #415A77;  
     float: right;
-    width: 18vw;
+    width: 17%;
+    height: 100%;
     border-radius: 26px;
-    height: 96vh;
-    padding: 20px;
-    align-items: center;
+    height: 96vh; 
+    display: grid;
+    grid-template-rows: 3.5fr 6.5fr;
 }
 
 @media screen and (max-width: 1120px) {
@@ -305,4 +391,168 @@ hr {
         width: calc(100%-80px); /* Adjust the width based on your sidebar width */
         left: 80px; /* Keep the left position to account for the sidebar */
     }
+}
+
+.secondary-area .top{
+    display: grid;
+    padding-top: 25px;
+}
+
+.circular-progress {
+    position: relative;
+    height: 100px; /* Adjust the height as needed */
+    width: 100px;  /* Adjust the width as needed */
+    border-radius: 50%;
+    background: conic-gradient(#5194AD 3.6deg, #cacaca 0deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+}
+
+.circular-progress::before {
+    content: "";
+    position: absolute;
+    height: 80px;  /* Adjust the height as needed */
+    width: 80px;   /* Adjust the width as needed */
+    border-radius: 50%;
+    background-color: #415A77;
+}
+
+.progress-value {
+    position: relative;
+    font-size: 20px; /* Adjust the font size as needed */
+    font-weight: 600;
+    color: #5194AD;
+}
+
+.progress-bar {
+    height: 150px;  /* Adjust the height as needed */
+    width: 150px;   /* Adjust the width as needed */
+    border-radius: 50%;
+    background: conic-gradient(#5194AD 3.6deg, #cacaca 0deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    align-self: center;
+    justify-self: center;
+}
+
+.progress-bar::before {
+    content: "";
+    position: absolute;
+    height: 120px;  
+    width: 120px; 
+    border-radius: 50%;
+    background-color: #415A77;  
+}
+
+
+.progress {
+    position: relative;
+    font-size: 40px;
+    font-weight: 600;
+    color: #5194AD;
+}
+
+
+.complete {
+    align-self: center;
+    justify-self: center;
+    font-size: 15px;
+    color: #ededed;
+    margin-top: 20px;
+    
+}
+.complete p{
+    color: #cacaca;
+}
+
+.bottom{
+    height: 100%;
+    border-bottom-left-radius: 26px;
+    border-bottom-right-radius: 26px;
+    padding: 15px;
+}
+
+.recent_project {
+    margin-top: 20px; 
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto; 
+    height: 100%;
+}
+
+.listing {
+    /*background-color: #5194AD;
+    height: 95%;
+    border-radius: 26px;
+    padding: 20px;*/
+    background-color: #5194AD;
+    height: 95%;
+    border-radius: 26px;
+    padding: 20px;
+    position: relative;
+    overflow: hidden; 
+    box-shadow:
+        0 0 0 3px #c2c2c2, /* Outer outline color */
+        0 0 0 6px #5194AD; /* Inner outline color */
+}
+.title {
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+    color: #ededed;
+   
+}
+.title h4{
+    color: #ededed;
+    border-bottom: 1px solid #dddada;
+    padding: 5px;
+}
+
+.title p{
+    border-bottom: 1px solid #dddada;
+    color: #cacaca;
+    font-size: 12px;
+    padding: 3px;
+}
+
+.subtasks {
+    margin-top: 10px;
+}
+
+.main-subtask{
+    padding-top: 10px;
+}
+
+
+/* Styles for the subtasks containers */
+.subtasks, .subs2, .sub3, .subs4,.subs5 {
+    margin-bottom: 5px;
+    border-bottom: 1px solid #dddada;
+    display:grid;
+    grid-template-columns: 8fr 2fr;
+    padding: 1px;
+}
+
+/* Styles for the h4 elements inside subtasks containers */
+.subtasks h4, .subs2 h4, .sub3 h4, .subs4 h4, .subs5 h4 {
+    font-size: 14px; /* Example font size */
+    color: #ededed; /* Example text color */
+}
+
+/*Completed subtask*/
+.subs-completed {
+    text-align: center;
+    padding-top: 10px; /* Adjust the margin as needed */
+}
+
+.subs-completed h3 {
+    font-size: 18px; /* Example font size */
+    color: #fffefe; /* Example text color */
+}
+.subs-completed p{
+    color: #cacaca;
 }

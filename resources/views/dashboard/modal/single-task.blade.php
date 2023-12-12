@@ -38,27 +38,15 @@
                                             <h3 class="text-muted">...</h3>
                                         </div>
                                     @endfor
+                                    <div class="buttons">
+                                        <button class ="check" onclick="saveConfirmation(event)"><i class='bx bx-check-double' style='color:#c6d24f' ></i></button>
+                                        <button class ="trash" href="/dashboard/tasks/{{$task->id}}/delete" onclick="confirmation(event)"><i class='bx bxs-trash' style='color:#c6d24f' ></i></button>
+                                        <button class="update" type="button" onclick="edit({{ $task->id}})">
+                                            <i class='bx bxs-edit-alt' style='color:#c6d24f'></i>
+                                        </button>
+                                    </div>
                             </div>
                         </form>
-                        </div>
-                    </div>
-                    <div class="right">
-                        <div class="summary-report">
-                            <h3 class="font-weight-bold text-center">Summary Report</h3>
-                        </div>
-                        <div class="summary-list">
-                            <ul>
-                                <li>Subtask1</li>
-                                <li>Subtask1</li>
-                                <li>Subtask1</li>
-                                <li>Subtask1</li>
-                                <li>Subtask1</li>
-                            </ul>
-                        </div>
-                        <div class="buttons">
-                            <button class ="check" onclick="saveConfirmation(event)"><i class='bx bx-check-double' style='color:#c6d24f' ></i></button>
-                            <button class ="trash" href="/dashboard/tasks/{{$task->id}}/delete" onclick="confirmation(event)"><i class='bx bxs-trash' style='color:#c6d24f' ></i></button>
-                            <button class="update" onclick="edit({{ $task->id}})"><i class='bx bxs-edit-alt' style='color:#c6d24f' ></i></button>
                         </div>
                     </div>
                 </div>
@@ -69,7 +57,7 @@
 
 <style>
     .custom-width-modal {
-      max-width: 90%; /* Adjust the percentage as needed */
+      max-width: 70%; /* Adjust the percentage as needed */
     }
 
     .modal-content {

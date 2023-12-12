@@ -72,13 +72,6 @@
             </li>
             <li>
                 <a href="#">
-                    <i class='bx bx-collapse-alt bx-sm'></i>
-                    <span class="nav-item">SubSpaces</span>
-                </a>
-                {{-- <span class="tooltip">SubSpaces</span> --}}
-            </li>
-            <li>
-                <a href="#">
                     <i class='bx bx-cog bx-sm'></i>
                     <span class="nav-item">Settings</span>
                 </a>
@@ -99,9 +92,10 @@
                         <span class="nav-item" style="color:#334152; font-size:16px; padding-left: 5px; padding-bottom: 20px;">Logout</span>
                     </button>
                 </form> --}}
+                <span class="tooltip">Logout</span>
             </li>
         </ul>
-    </div>                                              
+    </div>                                          
     <div class="main-content"><!--Dashboard-->
         <div class="left">
             <div class="top">
