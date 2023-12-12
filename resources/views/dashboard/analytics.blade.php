@@ -108,7 +108,6 @@
                     </div> 
                     <div class="summary">
                         <ul>
-                            
                             @foreach($logs->items() as $log)
                             <li>
                                 <h4>{{$log->log_type}}</h4>
