@@ -486,3 +486,27 @@ hr {
     color: gray;
     position: absolute;
 }
+
+@media (max-width:770px) {
+    .body{}
+
+    .main-content{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .main-content .left{
+        display: flex;
+        flex-direction: column;
+        width: 40vh;
+    }
+
+    .main-content .left .bottom{
+        display: none;
+    }
+
+    .main-content .right{
+        width: 38vh;
+    }
+}

@@ -176,10 +176,10 @@ class OtherController extends Controller
     {
         $user = Auth::user();
 
-        $tasks = Tasks::where('user_id', $user->id)->whereNotNull('due_date')->get();
+        $tasks = Tasks::where('user_id', $user->id)->whereNotNull('due-date')->get();
 
         $formattedTasks = $tasks->map(function ($task) {
-            $dueDate = \Carbon\Carbon::parse($task->due_date);
+            $dueDate = \Carbon\Carbon::parse($task['due-date']);
 
             return [
                 'title' => $task->name,

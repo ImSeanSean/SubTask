@@ -397,7 +397,7 @@ hr {
         display: none;
     }
     .main-content {
-        width: calc(100%-80px); /* Adjust the width based on your sidebar width */
+        width: 100% !important; /* Adjust the width based on your sidebar width */
         left: 80px; /* Keep the left position to account for the sidebar */
     }
 }
@@ -584,4 +584,43 @@ hr {
 }
 .subs-completed p{
     color: #cacaca;
+}
+
+@media (max-width:770px) {
+    body{
+        height: 100vh;
+    }
+
+    .sidebar{
+        height: 100%;
+    }
+
+    .upper-container{
+        display: none;
+    }
+
+    .taskboard{
+        width: 100%;
+    }
+
+    .sorting{
+        display: none;
+    }
+
+    .main-content{
+        flex-direction: column !important;
+    }
+
+    .main-content .left{
+        display: flex !important;
+    }
+
+    .task-card-group{
+        display: flex !important;
+        flex-direction: column;
+    }
+    
+    .add-task{
+        right: 10% !important;
+    }
 }

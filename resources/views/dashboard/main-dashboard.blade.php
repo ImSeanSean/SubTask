@@ -20,7 +20,9 @@
     <div class="sidebar" id="sidebar"><!--Sidebar-->
         <div class="top">
             <div class="logo">
+                <a href="/">
                 <img src="{{ asset('images/subtaskLogo.png') }}" alt="logo" class="logoIcon">
+                </a>
             </div>
             <i class="bx bx-menu bx-md" id="btn"></i>
         </div>
@@ -42,13 +44,6 @@
                     <span class="nav-item">Analytics</span>
                 </a>
                 {{-- <span class="tooltip">Analytics</span> --}}
-            </li>
-            <li>
-                <a href="#">
-                    <i class='bx bx-cog bx-sm'></i>
-                    <span class="nav-item">Settings</span>
-                </a>
-                {{-- <span class="tooltip">Settings</span> --}}
             </li>
             <hr class="solid">
             <li>

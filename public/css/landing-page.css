@@ -7,7 +7,7 @@
 body{
     background: #F7F7F7;
     font-family: 'Poppins', sans-serif;
-    width: 100vh;
+    width: 100vw;
     height: 100vh;
 }
 
@@ -25,7 +25,7 @@ body{
     position: absolute;
     bottom: 0px;
     left: 30%;
-    animation: anim 2s forwards, anim2 3s forwards 3s;
+    animation: anim 0.25s forwards, anim2 0.25s forwards 0.25s;
 }
 
 #Contai1::after{
@@ -75,7 +75,7 @@ body{
 #text {
     position: relative;
     left: -200%;
-    animation: anim3 2s forwards 3s;
+    animation: anim3 0.25s forwards 0.5s;
 }
 .sub-text {
     color: #415A77; /* Color for 'SUB' */
@@ -103,7 +103,7 @@ body{
     width: 100%;
     position: absolute;
     top: -100%;
-    animation: anim4 2s forwards 2.5s;
+    animation: anim4 0.25s forwards 0.5s;
     background-color: #eed5c2;
     padding: 5px;
 }
@@ -182,4 +182,25 @@ hr{
     top: 0;
     padding: 50px;
     border: #415A77 50px;
+}
+
+@media (max-width:770px) {
+    #Contai1{
+        display: none !important;
+    }
+    #Contai2{
+        display: none !important;
+    }
+    #Contai3{
+        all: unset !important;
+        height: 100%;
+        width: 100%;
+    }
+    #container{
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+    }
 }

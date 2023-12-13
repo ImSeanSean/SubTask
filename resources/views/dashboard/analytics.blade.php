@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SubTask | Dashboard</title>
+    <title>SubTask | Analytics</title>
     <link rel="icon" href="/images/logoSMNT.ico" type="image/x-icon">
     {{-- <link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css') }}"> --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -33,7 +33,9 @@
     <div class="sidebar" id="sidebar"><!--Sidebar-->
         <div class="top">
             <div class="logo">
+                <a href="/">
                 <img src="{{ asset('images/subtaskLogo.png') }}" alt="logo" class="logoIcon">
+                </a>
             </div>
             <i class="bx bx-menu bx-md" id="btn"></i>
         </div>
@@ -50,32 +52,11 @@
                 {{-- <span class="tooltip">Dashboard</span> --}}
             </li>
             <li>
-                <a href="#">
-                    <i class='bx bx-notification bx-sm'></i>
-                    <span class="nav-item">Notifications</span>
-                </a>
-                {{-- <span class="tooltip">Notifications</span> --}}
-            </li>
-            <li>
-                <a href="/dashboard/tasks">
-                    <i class='bx bx-task bx-sm'></i>
-                    <span class="nav-item">Tasks</span>
-                </a>
-                {{-- <span class="tooltip">Tasks</span> --}}
-            </li>
-            <li>
                 <a href="/dashboard/analytics">
                     <i class='bx bx-analyse bx-sm'></i>
                     <span class="nav-item">Analytics</span>
                 </a>
                 {{-- <span class="tooltip">Analytics</span> --}}
-            </li>
-            <li>
-                <a href="#">
-                    <i class='bx bx-cog bx-sm'></i>
-                    <span class="nav-item">Settings</span>
-                </a>
-                {{-- <span class="tooltip">Settings</span> --}}
             </li>
             <hr class="solid">
             <li>

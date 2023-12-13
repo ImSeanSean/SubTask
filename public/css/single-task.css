@@ -429,4 +429,53 @@
 }
 
 
+@media (max-width: 770px) {
+    .custom-width-modal {
+        max-width: 90%; /* Adjust the percentage as needed for smaller screens */
+    }
 
+    .modal-content {
+        margin: 10px; /* Add some margin for smaller screens */
+    }
+
+    .modal-taskview .left{
+        display: flex !important;
+        flex-flow: wrap;
+    }
+}
+
+@media (max-width: 600px){
+    .bottom{
+        width: 100%;
+        overflow-y: auto;
+        height: 100%;
+    }
+
+    .percentage{
+        display: none !important;
+    }
+    .left .title h1{
+        font-size: 30px !important;
+    }
+    .list-of-task{
+        display: flex !important;
+        flex-direction: column;
+        width: 100%;
+    }
+}
+
+@media (max-width: 430px){
+    .list-of-task .buttons{
+        display: flex !important;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 405px){
+    .list-of-task h3{
+        font-size: 15px !important;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+}

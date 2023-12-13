@@ -14,7 +14,9 @@
 <body>
         <div class="left">
             <hr class="top">
+            <a href="/">
             <img class="logo" src="{{ asset('images/subTaskLogo.png') }}">
+            </a>
             <div class="text">
                 <p>Finish tasks</p>
                 <p >by completing</p>

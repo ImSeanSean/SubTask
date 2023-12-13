@@ -372,3 +372,26 @@
     margin-left: 5%;
     margin-top: -3%;
 }
+
+@media (max-width:770px) {
+    .form-grid{
+        display: flex !important;
+        flex-direction: column;
+    }
+
+    .upper-form{
+        display: flex !important;
+        flex-direction: column;
+    }
+
+    .color-radio{
+        flex-flow: wrap;
+    }
+
+    .bottom-part .left input{
+        width: 100% !important;
+    }
+    .form-grid .bottom-part .left .button {
+        width: 100% !important;
+    }
+}

@@ -3,6 +3,7 @@
 <head> 
     <meta charset="UTF-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel="icon" href="/images/logoSMNT.ico" type="image/x-icon">
     <link rel="stylesheet" href="{{asset('/css/landing-page.css')}}"> 
     <title>SubTask</title> 
 </head> 
@@ -32,12 +33,6 @@
                 </div> 
                 <div id="menu"> 
                     <ul> 
-                        <a href="#">
-                            <li>Features</li>
-                        </a>
-                        <a href="#">
-                            <li>About us</li>  
-                        </a>
                         <a href="/registration">
                             <li>Registration</li>
                         </a>

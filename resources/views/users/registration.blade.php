@@ -12,7 +12,9 @@
 <body>
     <div class="left">
         <hr class="top">
+        <a href="/">
         <img src="{{ asset('/images/subtaskLogo.png')}}">
+        </a>
         <div class="registration-form">
             <div class="header">
                 <h1>Productivity Awaits</h1>
