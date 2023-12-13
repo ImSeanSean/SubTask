@@ -4,7 +4,7 @@
     @unless(count($tasks) == 0)
         @foreach($tasks as $task)
             {{-- <a href="/dashboard/tasks/{{$task['id']}}" class="task-card" id="taskButton"> --}}
-                <a href="#" data-toggle="modal" data-target="#ModalTaskView{{$task['id']}}" class="task-card" id="taskButton">
+                <a href="#" data-toggle="modal" data-target="#ModalTaskView{{$task['id']}}" class="task-card" id="{{$task->id}}">
                 <div class="task-card-div">
                     <div class="bar">
                         <div class="side-bar"></div>
