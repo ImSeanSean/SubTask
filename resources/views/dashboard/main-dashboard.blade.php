@@ -37,6 +37,20 @@
                 {{-- <span class="tooltip">Dashboard</span> --}}
             </li>
             <li>
+                <a href="#">
+                    <i class='bx bx-notification bx-sm'></i>
+                    <span class="nav-item">Notifications</span>
+                </a>
+                {{-- <span class="tooltip">Notifications</span> --}}
+            </li>
+            <li>
+                <a href="/dashboard/tasks">
+                    <i class='bx bx-task bx-sm'></i>
+                    <span class="nav-item">Tasks</span>
+                </a>
+                {{-- <span class="tooltip">Tasks</span> --}}
+            </li>
+            <li>
                 <a href="/dashboard/analytics">
                     <i class='bx bx-analyse bx-sm'></i>
                     <span class="nav-item">Analytics</span>
@@ -77,37 +91,64 @@
                     <form>
                         <button type="submit" class="border-0"><i class='bx bx-search-alt-2 bx-md' style='color:#415a77'></i></button>
                         <input type="text" id="search" name="search" placeholder="Search here...">
-                        <select name="color">
-                            <option class="select-definition" value="">Filter by Color</option>
-                            <option class="select-options" style="color: #F6828C" value="red">Red</option>
-                            <option class="select-options" style="color: #52bfff" value="blue">Blue</option>
-                            <option class="select-options" style="color: #37ce57" value="green">Green</option>
-                            <option class="select-options" style="color: #cdcf2b" value="yellow">Yellow</option>
-                            <option class="select-options" style="color: #F6B382" value="orange">Orange</option>
-                            <option class="select-options" style="color: #D882F6" value="purple">Purple</option>
-                        </select> 
-                        <select name="due_date">
-                            <option class="select-definition" value="">Filter by Due-Date</option>
-                            <option class="select-options" value="3"> 3 Days</option>
-                            <option class="select-options" value="2">2 Days</option>
-                            <option class="select-options" value="1">1 Day</option>
-                            <option class="select-options" value="0">Today</option>
-                        </select>
                     </form>
                 </div>
                 <div class="notification">
-                    <i class='bx bxs-bell bx-md' style='color:#415a77'  onclick="toggleNotif()"><span>-{{$notifications->count()}}-</span></i>
+                    <i class='bx bxs-bell bx-md' style='color:#415a77'  onclick="toggleNotif()"><span>17</span></i>
                 </div>
                 <div class="notification-box" id="box">
-                    <h2>Notification<span>{{$notifications->count()}}</span></h2> 
-                    @foreach ($notifications as $notification)
+                    <h2>Notification<span>17</span></h2> 
                     <div class="notification-item">
-                        <div class="text">
-                            <p>{{ $notification->message }}</p>
-                        </div>
+                        <div class="text"><p>Web Development Due-Date is in 3 days!</p></div>
                     </div>
-                    @endforeach
-                    <a href="/tasks/clear-notifications" style="padding: 20px;">clear all notifications</a>
+                    <div class="notification-item">
+                        <div class="text"><p>Web Development Due-Date is in 3 days!</p></div>
+                    </div>
+                    <div class="notification-item">
+                        <div class="text"><p>Web Development Due-Date is in 3 days!</p></div>
+                    </div>
+                    <div class="notification-item">
+                        <div class="text"><p>Web Development Due-Date is in 3 days!</p></div>
+                    </div>
+                    <div class="notification-item">
+                        <div class="text"><p>Web Development Due-Date is in 3 days!</p></div>
+                    </div>
+                    <div class="notification-item">
+                        <div class="text"><p>Web Development Due-Date is in 3 days!</p></div>
+                    </div>
+                    <div class="notification-item">
+                        <div class="text"><p>Web Development Due-Date is in 3 days!</p></div>
+                    </div>
+                    <div class="notification-item">
+                        <div class="text"><p>Web Development Due-Date is in 3 days!</p></div>
+                    </div>
+                    <div class="notification-item">
+                        <div class="text"><p>Web Development Due-Date is in 3 days!</p></div>
+                    </div>
+                    <div class="notification-item">
+                        <div class="text"><p>Web Development Due-Date is in 3 days!</p></div>
+                    </div>
+                    <div class="notification-item">
+                        <div class="text"><p>Web Development Due-Date is in 3 days!</p></div>
+                    </div>
+                    <div class="notification-item">
+                        <div class="text"><p>Web Development Due-Date is in 3 days!</p></div>
+                    </div>
+                    <div class="notification-item">
+                        <div class="text"><p>Web Development Due-Date is in 3 days!</p></div>
+                    </div>
+                    <div class="notification-item">
+                        <div class="text"><p>Web Development Due-Date is in 3 days!</p></div>
+                    </div>
+                    <div class="notification-item">
+                        <div class="text"><p>Web Development Due-Date is in 3 days!</p></div>
+                    </div>
+                    <div class="notification-item">
+                        <div class="text"><p>Web Development Due-Date is in 3 days!</p></div>
+                    </div>
+                    <div class="clear-button">
+                        <a href="/tasks/clear-notifications">clear notifications</a>
+                    </div>
                 </div>
             </div>
 
@@ -140,33 +181,55 @@
             <div class="top">
                 <div class="progress-bar">
                     <div class="circular-progress">
-                        <div class="progress-value">
-
-                        </div>                        
+                        <span class="progress-value">0%</span>
+                    </div>
+                    <div class="progress">
+                        <span class="progress"></span>
                     </div>
                 </div>
                 <div class="complete">
-                    <h3>{{$completedTasksCount}} Completed</h3>
-                    <p>from {{$tasks->count()}} projects</p>
+                    <h3>3 Completed</h3>
+                    <p>from 5 projects</p>
                 </div>
             </div>
             <div class="bottom">
                 <div class="recent_project"><!-- Recent Project -->
                     <div class="listing">
                             <div class="title">
-                                <h2>Subtask</h2>
+                                <h2>Discrete</h2>
                                 <h4>Due date</h4>
-                                <p>Description</p>
+                                <p>Kaya mo yan ikaw paba?ikaw na yan eh</p>
                             </div>
                             <div class="main-subtask">
                                 <div class="subtasks">
-                                    <h4>Subtask</h4>
-                                    <input type="checkbox" disabled>
+                                    <h4>video</h4>
+                                    <input type="checkbox">
+                                </div>
+                                <div class="subs2">
+                                    <h4>photoshoot</h4>
+                                    <input type="checkbox">
+                                </div>
+                                <div class="sub3">
+                                    <h4>music video</h4>
+                                    <input type="checkbox">
+                                </div>
+                                <div class="subs4">
+                                    <h4>kipay</h4>
+                                    <input type="checkbox">
+                                </div>
+                                <div class="subs5">
+                                    <h4>tite</h4>
+                                    <input type="checkbox">
+                                </div>
+                                <div class="subs-completed">
+                                    <h3>1 out 5</h3>
+                                    <p>Completed</p>
                                 </div>
                             </div>
                     </div>
                 </div>
             </div>
+            <script src="script.js"></script>
     </div>
     </div>
     <x-add-task />
@@ -175,7 +238,6 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="{{asset('/js/sidebar-circle.js')}}"> </script>
 </body>
 <script>
     let btn = document.querySelector("#btn")
@@ -205,9 +267,7 @@
         down = true;
     }
 
-    
 }
 </script>
-
 
 </html>

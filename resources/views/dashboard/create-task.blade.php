@@ -161,7 +161,7 @@
                                 <label>Add SubTasks</label>
                                 <input type="text" name="subtask-1" placeholder="SubTask 1" value={{old('subtask-1')}}>
                                 @error('subtask-1')
-                                <span class="error">{{$message}}</span>
+                                <span class="error">Must not be greater than 15 characters.</span>
                                 @enderror
                                 <input type="text" name="subtask-2" placeholder="SubTask 2" value={{old('subtask-2')}}>
                                 @error('subtask-2')

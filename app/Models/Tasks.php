@@ -31,8 +31,4 @@ class Tasks extends Model
     {
         return $this->hasMany(Subtasks::class, 'task_id');
     }
-    public function notifications()
-    {
-        return $this->hasMany(Notification::class, 'task_id');
-    }
 }

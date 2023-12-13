@@ -73,14 +73,11 @@ Route::post('/users/authenticate', [UserController::class, 'authenticate']);
 Route::get('/logout', [UserController::class, 'logout'])->middleware('auth');
 
 //Notifications
-Route::get('/tasks/clear-notifications', [OtherController::class, 'clearNotifications'])->middleware('auth');;
+Route::get('/tasks/clear-notifications', [OtherController::class, 'clearNotifications']);
 //API
-Route::get('/api/chart-data', [OtherController::class, 'getData'])->middleware('auth');;
-Route::get('/api/graph-data', [OtherController::class, 'getDataLine'])->middleware('auth');;
-Route::get('/api/due-dates', [OtherController::class, 'getDueDates'])->middleware('auth');;
-Route::get('api/taskPercentage', [OtherController::class, 'taskPercentages'])->middleware('auth');;
-Route::get('/api/task/{taskId}', [OtherController::class, 'getTaskDetails'])->middleware('auth');
-
+Route::get('/api/chart-data', [OtherController::class, 'getData']);
+Route::get('/api/graph-data', [OtherController::class, 'getDataLine']);
+Route::get('/api/due-dates', [OtherController::class, 'getDueDates']);
 
 //test
 Route::get('test', function () {

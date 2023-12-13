@@ -310,16 +310,6 @@
     outline: none;
 }
 
-.search form select{
-    border-radius: 20px;
-    height: 35px;
-    width: 180px;
-}
-
-.search form select .select-definition{
-    text-align: center;
-}
-
 /*End of Upper*/
 
 /*Line Break*/
@@ -386,6 +376,7 @@ hr {
     background-color: #415A77;  
     float: right;
     width: 17%;
+    height: 100%;
     border-radius: 26px;
     height: 96vh; 
     display: grid;
@@ -404,7 +395,7 @@ hr {
 
 .secondary-area .top{
     display: grid;
-    padding-top: 20px;
+    padding-top: 25px;
 }
 
 .circular-progress {
@@ -471,19 +462,11 @@ hr {
     justify-self: center;
     font-size: 15px;
     color: #ededed;
+    margin-top: 20px;
+    
 }
-
-.complete h3{
-    text-align: center;
-    font-size: 25px;
-    margin-bottom: 0;
-}
-
 .complete p{
     color: #cacaca;
-    text-align: center;
-    text-transform: uppercase;
-    font-weight: bold;
 }
 
 .bottom{
@@ -491,12 +474,10 @@ hr {
     border-bottom-left-radius: 26px;
     border-bottom-right-radius: 26px;
     padding: 15px;
-    max-width: 100%;
-    overflow: hidden;
-    position: relative;
 }
 
 .recent_project {
+    margin-top: 20px; 
     border-radius: 10px;
     margin-left: auto;
     margin-right: auto; 
@@ -523,19 +504,12 @@ hr {
     flex-direction: column;
     font-size: 15px;
     color: #ededed;
+   
 }
-
-.title h2{
-    margin: 0;
-    overflow-wrap: break-word;
-    line-height: 0.7;
-    margin-bottom: 5px;
-}
-
 .title h4{
     color: #ededed;
     border-bottom: 1px solid #dddada;
-    padding-bottom: 5px;
+    padding: 5px;
 }
 
 .title p{
@@ -543,16 +517,14 @@ hr {
     color: #cacaca;
     font-size: 12px;
     padding: 3px;
-    padding-bottom: 10px;
-    overflow-wrap: break-word;
 }
 
 .subtasks {
-
+    margin-top: 10px;
 }
 
 .main-subtask{
-
+    padding-top: 10px;
 }
 
 
@@ -580,7 +552,6 @@ hr {
 .subs-completed h3 {
     font-size: 18px; /* Example font size */
     color: #fffefe; /* Example text color */
-    margin: 0;
 }
 .subs-completed p{
     color: #cacaca;
