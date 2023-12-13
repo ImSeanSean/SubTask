@@ -73,13 +73,6 @@
                         <span class="nav-item">Logout</span>
                     </a>
                     <span class="tooltip">Logout</span>
-                    {{-- <form>
-                        @csrf
-                        <button style="background: none; border: none; padding: 0; cursor: pointer; margin-left: 10px; padding-top: 5px">
-                            <i class='bx bx-log-out-circle bx-sm' style='color:#334152'></i>
-                            <span class="nav-item" style="color:#334152; font-size:16px; padding-left: 5px; padding-bottom: 20px;">Logout</span>
-                        </button>
-                    </form> --}}
                     <span class="tooltip">Logout</span>
                 </li>
             </ul>

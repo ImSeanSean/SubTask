@@ -5,15 +5,6 @@
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/*Start of Sidebar*/
-
-/* .logoIcon {
-    width: 5px !important;
-    height: 5px;
-    border-radius: 50%;
-    border: 1px solid #000;
-} */
-
 .user-img {
     width: 50px;
     border-radius: 100%;
@@ -370,51 +361,6 @@ hr {
     font-size: 14px; /* Adjust font size as needed */
 }
 
-/* .main-content .left .bottom .graphs .pie-graph{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-}
-
-.main-content .left .bottom .graphs .percentage{
-    padding: 10px;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.main-content .left .bottom .graphs .circle-percentage{
-    position: relative;
-    height: 100%;
-    width: 70%;
-    border-radius: 50%;
-    background-color: #5194ad;
-    background: conic-gradient(#5194ad 3.6deg, #ededed 0deg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.main-content .left .bottom .graphs .circle-percentage::before{
-    content: "";
-    position: absolute;
-    height: 72.5%;
-    width: 70%;
-    border-radius: 50%;
-    background-color: #f9f89e;
-}
-
-.main-content .left .bottom .graphs .percentage span{
-    position: relative;
-    color: #415a77;
-    z-index: 1;
-    font-size: 150%;
-    font-weight: bold;
-} */
-
 .main-content .right{
     display: grid;
     row-gap: 1rem;
@@ -444,9 +390,8 @@ hr {
 .main-content .right .top .calendar{
     padding: 10px;
     height: 100%;
-    transform: scale(0.95); /* Adjust the scale factor as needed */
+    transform: scale(0.95); 
     background-color: #eeeeee69;
-    /* transform-origin: 0 0; Adjust the transform origin to control the scaling point */
 }
 
 .main-content .right .bottom {

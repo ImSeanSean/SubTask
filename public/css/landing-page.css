@@ -7,7 +7,7 @@
 body{
     background: #F7F7F7;
     font-family: 'Poppins', sans-serif;
-    width: 100vw;
+    width: 100vwx;
     height: 100vh;
 }
 
@@ -78,11 +78,11 @@ body{
     animation: anim3 0.25s forwards 0.5s;
 }
 .sub-text {
-    color: #415A77; /* Color for 'SUB' */
+    color: #415A77; 
 }
 
 .task-text {
-    color: #F6828C; /* Color for 'TASK' */
+    color: #F6828C;
 }
 
 @keyframes anim3{
@@ -112,15 +112,15 @@ body{
     float: left;
     margin-left: 100px;
     margin-top: 10px;
-    text-decoration: none; /* Remove underline */
-    color: inherit; /* Inherit the color from the parent */
-    cursor: pointer; /* Set cursor to pointer on hover */
+    text-decoration: none; 
+    color: inherit;
+    cursor: pointer; 
 }
 
 #logo a {
-    text-decoration: none; /* Remove underline */
-    color: inherit; /* Inherit the color from the parent */
-    cursor: pointer; /* Set cursor to pointer on hover */
+    text-decoration: none; 
+    color: inherit; 
+    cursor: pointer; 
 }
 
 #logo a img{
@@ -162,9 +162,9 @@ body{
 }
 
 #menu a {
-    text-decoration: none; /* Remove underline */
-    color: inherit; /* Inherit the color from the parent */
-    cursor: pointer; /* Set cursor to pointer on hover */
+    text-decoration: none; 
+    color: inherit; 
+    cursor: pointer; 
 }
 
 @keyframes anim4{
